@@ -1,5 +1,4 @@
 /** @format */
-
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -8,65 +7,94 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './component/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './stories/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        // 基础颜色级别
-        primary: 'var(--primary)', // 主要颜色
-        secondary: 'var(--secondary)', // 次要颜色
-        third: 'var(--third)', // 第三级颜色
-        hover: 'var(--hover)', // 强调色
-        active: 'var(--active)', // 激活色
-        focus: 'var(--focus)', // 焦点色
-        disabled: 'var(--disabled)', // 禁用状态色
-        neutral: 'var(--neutral)', // 中性色，通常用于背景和次要元素
-        muted: 'var(--muted)', // 弱化色，通常用于禁用状态或辅助元素
-        body: 'var(--body)', // 主体色，通常用于文本和图标
-        overlay: 'var(--overlay)', // 覆盖层背景（如模态框）
-        link: 'var(--color-link)', // 链接色
-
-        // 状态颜色
-        info: 'var(--color-info)', // 信息色，通常用于通知或信息提示
-        success: 'var(--color-success)', // 成功状态色
-        warning: 'var(--color-warning)', // 警告状态色
-        error: 'var(--color-error)', // 错误状态色
-
-        // 文本颜色
-        tc: {
-          h1: 'var(--color-tc-h1)', // 标题1文本颜色
-          h2: 'var(--color-tc-h2)', // 标题2文本颜色
-          h3: 'var(--color-tc-h3)', // 标题3文本颜色
-          h4: 'var(--color-tc-h4)', // 标题4文本颜色
-          body: 'var(--color-tc-body)', // 主体文本颜色
-          link: 'var(--color-link)', // 链接文本颜色
+        primary: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
+          950: '#082f49',
         },
-      },
-      fontSize: {
-        xs: '0.65rem',
+        secondary: {
+          50: '#f5f3ff',
+          100: '#ede9fe',
+          200: '#ddd6fe',
+          300: '#c4b5fd',
+          400: '#a78bfa',
+          500: '#8b5cf6',
+          600: '#7c3aed',
+          700: '#6d28d9',
+          800: '#5b21b6',
+          900: '#4c1d95',
+          950: '#2e1065',
+        },
+        chart1: 'var(--chart-1)',
+        chart2: 'var(--chart-2)',
+        chart3: 'var(--chart-3)',
+        chart4: 'var(--chart-4)',
+        chart5: 'var(--chart-5)',
+        sidebar: 'var(--sidebar)',
+        sidebarForeground: 'var(--sidebar-foreground)',
+        sidebarPrimary: 'var(--sidebar-primary)',
+        sidebarPrimaryForeground: 'var(--sidebar-primary-foreground)',
+        sidebarAccent: 'var(--sidebar-accent)',
+        sidebarAccentForeground: 'var(--sidebar-accent-foreground)',
+        sidebarBorder: 'var(--sidebar-border)',
+        sidebarRing: 'var(--sidebar-ring)',
       },
       borderRadius: {
-        none: '0',
-        sm: '6px',
+        sm: '12px',
+        md: '14px',
+        lg: '24px',
+        xl: '36px',
+        full: '9999px',
+      },
+      padding: {
+        sm: '12px',
+        md: '14px',
+        lg: '24px',
+        xl: '36px',
+        full: '9999px',
+      },
+      gap: {
+        sm: '12px',
+        md: '14px',
+        lg: '24px',
+        xl: '36px',
+        full: '9999px',
+      },
+      margin: {
+        sm: '12px',
         md: '14px',
         lg: '28px',
-        xl: '40px',
+        xl: '36px',
         full: '9999px',
       },
       spacing: {
-        1: '0.25rem', // 4px
-        2: '0.5rem', // 8px
-        3: '0.75rem', // 12px
-        4: '1rem', // 16px
-        5: '1.25rem', // 20px
-        6: '1.5rem', // 24px
-        8: '2rem', // 32px
-        10: '2.5rem', // 40px
-        12: '3rem', // 48px
-        sm: '6px',
+        sm: '12px',
         md: '14px',
         lg: '28px',
-        xl: '40px',
+        xl: '36px',
+        full: '9999px',
+        1: '0.25rem',
+        2: '0.5rem',
+        3: '0.75rem',
+        4: '1rem',
+        5: '1.25rem',
+        6: '1.5rem',
+        8: '2rem',
+        10: '2.5rem',
+        12: '3rem',
       },
       keyframes: {
         'circle-draw': {

@@ -1,6 +1,7 @@
 /** @format */
-
+'use client';
 import Link from 'next/link';
+import { Button } from '@/stories/Components/Button/Button';
 
 /** @format */
 const practice = {
@@ -136,12 +137,13 @@ const practice = {
 };
 export default function Home() {
   return (
-    <div className='grid grid-cols-12 gap-4'>
+    <div className="grid grid-cols-12 padding-lg g-lg gapping-xl">
       {practice.hooks.map((hook) => (
         <Link
           href={`/${hook.name}`}
           key={hook.name}
-          className='m-2 col xxl:col-span-2 xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 card-rounded card-padding border overflow-auto'
+          className="card-lg
+         col xxl:col-span-2 xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 border overflow-auto"
         >
           <h3>{hook.name}</h3>
           <p>{hook.description}</p>
@@ -152,6 +154,14 @@ export default function Home() {
           {/* <p>{hook.returnType}</p> */}
         </Link>
       ))}
+      <Button
+        variant="primary"
+        size="lg"
+        onClick={() => console.log('clicked')}
+        // className="bg-primary-900 rounded-md flex items-center justify-center p-2"
+      >
+        Button
+      </Button>
     </div>
   );
 }

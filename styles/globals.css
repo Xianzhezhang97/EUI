@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-primary: oklch(0.623 0.214 259.815);
+  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.623 0.214 259.815);
+}
+
+
+h1 {
+  @apply font-bold mb-3 tracking-wider w-full text-3xl md:text-4xl lg:text-5xl;
+}
+
+h2 {
+  @apply font-medium mb-2  text-2xl md:text-3xl lg:text-4xl tracking-tight w-full;
+}
+
+h3 {
+  @apply font-bold text-xl md:text-2xl lg:text-3xl mb-1 tracking-normal;
+}
+
+h4 {
+  @apply font-semibold  mb-1 text-lg md:text-xl lg:text-2xl tracking-wide;
+}
+
+p {
+  @apply md:text-base lg:text-lg xl:text-xl tracking-tight;
+}
+
+.start {
+  @apply flex justify-start items-center;
+}
+
+.end {
+  @apply flex justify-end items-center;
+}
+
+.center {
+  @apply flex justify-center items-center;
+}
+
+.col {
+  @apply flex flex-col;
+}
+
+.row {
+  @apply flex flex-row;
+}
+
+
+
+.card-sm {
+  @apply rounded-sm p-sm;
+}
+.card-md {
+  @apply rounded-md p-md;
+}
+.card-lg {
+  @apply rounded-md p-md lg:p-lg lg:rounded-lg;
+}
+.card-xl {
+  @apply rounded-md p-md lg:p-lg lg:rounded-lg xl:rounded-xl xl:p-xl;
+}
+
+.card-sm-y-padding {
+  @apply rounded-sm py-sm;
+}
+.card-md-y-padding {
+  @apply rounded-md py-md;
+}
+.card-lg-y-padding {
+  @apply rounded-md lg:rounded-lg py-md lg:py-lg;
+}
+.card-xl-y-padding {
+  @apply rounded-md lg:rounded-lg xl:rounded-xl py-md lg:py-lg xl:py-xl;
+}
+
+
+
+.card-sm-no-padding {
+  @apply rounded-sm;
+}
+.card-md-no-padding {
+  @apply rounded-md;
+}
+.card-lg-no-padding {
+  @apply rounded-md lg:rounded-lg;
+}
+.card-xl-no-padding {
+  @apply rounded-md lg:rounded-lg xl:rounded-xl;
+}
+
+
+
+
+.gapping-sm{
+  @apply gap-sm md:gap-md lg:gap-lg;
+}
+.gapping-lg{
+  @apply gap-sm md:gap-md lg:gap-lg;
+}
+.gapping-md{
+  @apply gap-sm md:gap-md lg:gap-lg;
+}
+.gapping-xl{
+  @apply gap-sm md:gap-md lg:gap-lg xl:gap-xl;
+}
+
+
+
+.padding-sm{
+  @apply p-sm md:p-md lg:p-lg;
+} 
+.padding-md{
+  @apply p-sm md:p-md lg:p-lg;
+} 
+.padding-lg{
+  @apply p-sm md:p-md lg:p-lg;
+} 
+.padding-xl{
+  @apply p-sm md:p-md lg:p-lg xl:p-xl ;
+}
