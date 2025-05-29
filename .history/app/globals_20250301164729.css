@@ -1,0 +1,240 @@
+/** @format */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import '~@flaticon/flaticon-uicons/css/all/all.css'; */
+
+/* é»˜è®¤ä¸»é¢˜ */
+:root {
+  /* åŸºç¡€é¢œè‰² */
+  --color-darkBg: #090616;
+  --color-primary: #5c4c35;
+  --color-secondary: #dbcbb1;
+  --color-third: #f4ece0;
+  --color-hover: #c8a063;
+  --color-active: #c8a063;
+  --color-disabled: rgba(255, 255, 255, 0.5);
+  --color-focus: #c8a063;
+  --color-neutral: #f4f5f7;
+  --color-overlay: rgba(255, 255, 255, 0.5);
+  --color-body: #ffffff;
+
+  /* çŠ¶æ€é¢œè‰² */
+  --color-info: #17a2b8;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-error: #dc3545;
+
+  /* æ–‡æœ¬é¢œè‰² */
+  --color-tc-h1: #000000;
+  --color-tc-h2: #000000;
+  --color-tc-h3: #000000;
+  --color-tc-h4: #000000;
+
+  --color-tc-body: #333333;
+  --color-muted: #aaaaaa;
+  --color-inverted: #ebebeb;
+  --color-link: #bb8737;
+  font-size: 16px;
+}
+
+h1 {
+  @apply font-bold mb-3 tracking-wider w-full text-3xl md:text-4xl lg:text-5xl;
+}
+
+h2 {
+  @apply font-medium mb-2  text-2xl md:text-3xl lg:text-4xl tracking-tight w-full;
+}
+
+h3 {
+  @apply font-bold text-xl md:text-2xl lg:text-3xl mb-1 tracking-normal;
+}
+
+h4 {
+  @apply font-semibold  mb-1 text-lg md:text-xl lg:text-2xl tracking-wide;
+}
+
+p {
+  @apply md:text-base lg:text-lg xl:text-xl tracking-tight;
+}
+
+.start {
+  @apply flex justify-start items-center;
+}
+
+.end {
+  @apply flex justify-end items-center;
+}
+
+.center {
+  @apply flex justify-center items-center;
+}
+
+.col {
+  @apply flex flex-col;
+}
+
+.row {
+  @apply flex flex-row;
+}
+.second-page {
+  @apply flex flex-col h-screen mt-[70px] w-full justify-start items-center;
+}
+
+.range-slider {
+  @apply bg-third rounded-lg cursor-pointer h-5 w-full appearance-none;
+}
+
+.range-slider::-webkit-slider-thumb {
+  @apply bg-secondary rounded-full h-5 w-5 appearance-none;
+}
+
+.range-slider::-moz-range-thumb {
+  @apply bg-secondary rounded-full h-5 w-5 appearance-none;
+}
+
+.range-slider::-ms-thumb {
+  @apply bg-secondary rounded-full h-5 w-5 appearance-none;
+}
+
+.range-slider::-webkit-slider-runnable-track {
+  @apply bg-third rounded-full h-5 w-full;
+}
+
+.range-slider::-moz-range-track {
+  @apply bg-third  rounded-full h-5 w-full;
+}
+
+.range-slider::-ms-track {
+  @apply bg-third  rounded-full h-5 w-full;
+  border-color: transparent;
+  color: transparent;
+  background: transparent;
+}
+
+.range-slider:focus {
+  outline: none;
+}
+
+.range-slider:active::-webkit-slider-thumb {
+  @apply ring-third ring-4;
+}
+
+.page-padding {
+  @apply mx-auto min-w-[360px] max-w-[1000px] p-3 pb-[5vh] lg:p-6 xl:p-8;
+}
+
+.grid-gap {
+  @apply gap-4 lg:gap-6 xl:gap-8;
+}
+
+.card-rounded {
+  @apply rounded-md lg:rounded-lg;
+}
+
+.card-t-rounded {
+  @apply rounded-t-md lg:rounded-t-lg;
+}
+
+.card-padding {
+  @apply p-4 lg:p-6;
+}
+
+.btn-1th {
+  @apply bg-secondary rounded-full inline-flex flex-shrink-0 h-10 text-primary px-4 justify-center items-center dark:text-gray-900;
+}
+
+.btn-1th:hover {
+  @apply bg-hover text-white;
+}
+
+.btn-1th:disabled {
+  @apply border cursor-not-allowed bg-gray-100 border-gray-500 opacity-50 text-gray-900;
+}
+
+.btn-2th {
+  @apply border-secondary border inline-flex rounded-full flex-shrink-0 h-10 text-primary px-4 justify-center items-center dark:text-gray-900;
+}
+
+.btn-2th:hover {
+  @apply bg-hover text-white;
+}
+
+.btn-2th:disabled {
+  @apply border cursor-not-allowed bg-gray-100 border-gray-500 opacity-50 text-gray-900;
+}
+
+.btn-3rd {
+  @apply bg-primary rounded-full flex flex-shrink-0 h-12  text-white w-full px-4 justify-center items-center;
+}
+.btn-3rd:hover {
+  @apply bg-hover text-white;
+}
+
+.btn-3rd:disabled {
+  @apply bg-hover text-white;
+}
+
+.four-btn {
+  @apply bg-secondary rounded-full flex flex-shrink-0 h-12  text-primary w-full px-4 justify-center items-center;
+}
+
+.four-btn:hover {
+  @apply bg-hover text-white;
+}
+
+.four-btn:disabled {
+  @apply bg-hover text-white;
+}
+
+br {
+  @apply flex h-4 w-full py-4;
+}
+
+/* Loader Container */
+.loader {
+  display: flex;
+  gap: 16px;
+}
+
+/* Individual Dots */
+.loader .dot {
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-hover);
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
+  animation-delay: var(--delay); /* 使用 CSS 变量设置动画延迟 */
+}
+
+/* Keyframes for Bounce Animation */
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes circle-in-bottom-left {
+  from {
+    clip-path: circle(0%);
+  }
+  to {
+    clip-path: circle(150% at bottom left);
+  }
+}
+
+[transition-style='in:circle:bottom-left'] {
+  animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) circle-in-bottom-left both;
+}
+
+.aaa {
+  --transition__duration: 2.5s;
+  --transition__easing: ease-in-out;
+  animation-name: circle-in-bottom-left;
+}
