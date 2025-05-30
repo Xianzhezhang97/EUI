@@ -2,6 +2,8 @@
 'use client';
 import Link from 'next/link';
 import { Button } from '@/stories/Components/Button/Button';
+import { useState } from 'react';
+import { Slider } from '@/stories/Components/Slider/Slider';
 
 /** @format */
 const practice = {
@@ -136,14 +138,15 @@ const practice = {
   ],
 };
 export default function Home() {
+  const [value, setValue] = useState(0);
   return (
-    <div className="grid grid-cols-12 padding-lg g-lg gapping-xl">
+    <div className='grid grid-cols-12 padding-lg g-lg gapping-xl'>
       {practice.hooks.map((hook) => (
         <Link
           href={`/${hook.name}`}
           key={hook.name}
-          className="card-lg
-         col xxl:col-span-2 xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 border overflow-auto"
+          className='card-lg
+         col xxl:col-span-2 xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 border overflow-auto'
         >
           <h3>{hook.name}</h3>
           <p>{hook.description}</p>
@@ -155,13 +158,27 @@ export default function Home() {
         </Link>
       ))}
       <Button
-        variant="primary"
-        size="lg"
+        variant='primary'
+        size='lg'
         onClick={() => console.log('clicked')}
         // className="bg-primary-900 rounded-md flex items-center justify-center p-2"
       >
         Button
       </Button>
+      <Slider
+        value={value}
+        onValueChange={setValue}
+        min={0}
+        max={100}
+        step={1}
+        className='w-full'
+        trackColor='bg-primary-200'
+        filledTrackColorFrom='bg-primary-400'
+        filledTrackColorTo='bg-primary-500'
+        thumbColor='bg-primary-500'
+        thumbBorderColor='border-primary-500'
+        thumbHoverColor='hover:bg-primary-500'
+      />
     </div>
   );
 }

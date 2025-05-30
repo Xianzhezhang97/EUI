@@ -1,3 +1,5 @@
+/** @format */
+
 import { Button } from '@/stories/Components/Button/Button';
 import { motion } from 'framer-motion';
 import { Moon } from 'lucide-react';
@@ -14,8 +16,8 @@ export const AnimationDecorator: React.FC<AnimationDecoratorProps> = ({
   sourceCode,
 }) => {
   return (
-    <div className="flex justify-center items-center overflow-hidden rounded-2xl m-xl">
-      <div className="w-[600px] h-[400px]  bg-gray-200 flex justify-center relative items-center rounded-2xl p-6 shadow-xl border border-white/20">
+    <div className='flex justify-center items-center border border-[#dae0e7] overflow-hidden rounded-xl m-xl'>
+      <div className='w-[600px] h-[400px]  bg-[#f8fafd] flex justify-center   relative items-center card-xl shadow-xl border-white/20'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,15 +32,15 @@ export const AnimationDecorator: React.FC<AnimationDecoratorProps> = ({
               duration: 0.7,
             },
           }}
-          className="flex flex-col gap-6 items-center justify-center"
+          className='flex flex-col gap-6 items-center justify-center'
         >
           {children}
         </motion.div>
         <Button
-          variant="secondary"
+          variant='secondary'
           isPadding={false}
-          size="noPadding"
-          className="absolute top-[28px] right-[28px]"
+          size='noPadding'
+          className='absolute top-[28px] right-[28px]'
         >
           <Moon />
         </Button>
