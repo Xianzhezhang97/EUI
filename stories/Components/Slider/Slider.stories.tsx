@@ -144,32 +144,72 @@ export const Disabled: Story = {
 export const CustomColors: Story = {
   args: {
     defaultValue: 60,
-    trackColor: "#b3b3b3",
-    filledTrackColorFrom: "#00e1cf",
-    filledTrackColorTo: "#00c8ff",
-    thumbColor: "#0aa7ff",
-    thumbBorderColor: "#ffffff",
-    thumbHoverColor: "#ffffff",
+    trackColor: '#b3b3b3',
+    filledTrackColorFrom: '#00e1cf',
+    filledTrackColorTo: '#00c8ff',
+    thumbColor: '#0aa7ff',
+    thumbBorderColor: '#ffffff',
+    thumbHoverColor: '#ffffff',
   },
 };
 
 export const MultipleSliders: Story = {
   render: () => (
     <div className='flex flex-col gap-8 w-[300px]'>
-      <Slider defaultValue={25} />
       <Slider
-        defaultValue={50}
-        filledTrackColorFrom='rose-400'
-        filledTrackColorTo='rose-600'
-        thumbColor='bg-rose-50'
-        thumbBorderColor='border-rose-500'
+        defaultValue={14}
+        filledTrackColorFrom='#ff4d4d' // 红
+        filledTrackColorTo='#ff8080'
+        thumbColor='#ff3333'
+        thumbBorderColor='#ffffff'
       />
+
       <Slider
-        defaultValue={75}
-        filledTrackColorFrom='emerald-400'
-        filledTrackColorTo='emerald-600'
-        thumbColor='bg-emerald-50'
-        thumbBorderColor='border-emerald-500'
+        defaultValue={28}
+        filledTrackColorFrom='#ff9900' // 橙
+        filledTrackColorTo='#ffbb33'
+        thumbColor='#ff8800'
+        thumbBorderColor='#ffffff'
+      />
+
+      <Slider
+        defaultValue={42}
+        filledTrackColorFrom='#ffee00' // 黄
+        filledTrackColorTo='#ffff66'
+        thumbColor='#ffdd00'
+        thumbBorderColor='#ffffff'
+      />
+
+      <Slider
+        defaultValue={56}
+        filledTrackColorFrom='#33cc33' // 绿
+        filledTrackColorTo='#66ff66'
+        thumbColor='#00cc00'
+        thumbBorderColor='#ffffff'
+      />
+
+      <Slider
+        defaultValue={70}
+        filledTrackColorFrom='#00ccff' // 青
+        filledTrackColorTo='#66ffff'
+        thumbColor='#00aaff'
+        thumbBorderColor='#ffffff'
+      />
+
+      <Slider
+        defaultValue={84}
+        filledTrackColorFrom='#3366ff' // 蓝
+        filledTrackColorTo='#6699ff'
+        thumbColor='#3366ff'
+        thumbBorderColor='#ffffff'
+      />
+
+      <Slider
+        defaultValue={100}
+        filledTrackColorFrom='#cc00ff' // 紫
+        filledTrackColorTo='#e580ff'
+        thumbColor='#c633ff'
+        thumbBorderColor='#ffffff'
       />
     </div>
   ),

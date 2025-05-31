@@ -24,20 +24,22 @@ export interface AvatarProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
 
 const sizeStyles = {
   sm: {
-    container: 'size-12 md:size-14 flex items-center justify-center',
+    container: 'size-6  flex items-center justify-center',
     text: 'text-md',
   },
   md: {
-    container: 'size-12 md:size-16 flex items-center justify-center',
+    container:
+      'size-6 md:size-10 lg:size-14 xl:size-18 flex items-center justify-center',
     text: 'text-md md:text-lg',
   },
   lg: {
-    container: 'size-12 md:size-18 lg:size-20 flex items-center justify-center',
+    container:
+      'size-8 md:size-12 lg:size-16 xl:size-20 flex items-center justify-center',
     text: 'text-md md:text-lg lg:text-xl',
   },
   xl: {
     container:
-      'size-12 md:size-20 lg:size-22 xl:size-24 flex items-center justify-center',
+      'size-12 md:size-16 lg:size-20 xl:size-24 flex items-center justify-center',
     text: 'text-md md:text-lg lg:text-xl xl:text-xl',
   },
 };
@@ -136,7 +138,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
           )}
         </motion.div>
 
-        {message !== undefined && (
+        {message !== undefined && message > 0 && (
           <span className='absolute -top-[0.5em] -right-[0.5em]'>
             <div className='inline-flex h-5 px-1 rounded-full border-2 border-white bg-gradient-to-r from-red-500 to-red-300 items-center justify-center'>
               <div className='px-1 text-white text-xs font-semibold'>

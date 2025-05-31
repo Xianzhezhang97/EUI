@@ -111,7 +111,7 @@ const meta: Meta<typeof Avatar> = {
       },
     },
     message: {
-      control: { type: 'range', min: 1, max: 200, step: 1 },
+      control: { type: 'range', min: 0, max: 200, step: 1 },
       description: 'Message count to display',
       table: {
         category: 'Content',

@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 :root {
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
   --primary-50: theme('colors.primary.50');
   --primary-100: theme('colors.primary.100');
   --primary-200: theme('colors.primary.200');
@@ -102,37 +103,50 @@ p {
   @apply rounded-sm;
 }
 .card-md-no-padding {
-  @apply rounded-md;
+  @applyrounded-sm md:rounded-md;
 }
 .card-lg-no-padding {
-  @apply rounded-md lg:rounded-lg;
+  @apply rounded-sm md:rounded-md lg:rounded-lg;
 }
 .card-xl-no-padding {
-  @apply rounded-md lg:rounded-lg xl:rounded-xl;
+  @apply rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl;
 }
 
-.gapping-sm {
+.rd-sm {
+  @apply rounded-sm;
+}
+.rd-md {
+  @apply rounded-sm md:rounded-md;
+}
+.rd-lg {
+  @apply rounded-sm md:rounded-md lg:rounded-lg;
+}
+.rd-xl {
+  @apply rounded-sm md:rounded-md lg:rounded-lg xl:rounded-xl;
+}
+
+.gp-sm {
+  @apply gap-sm;
+}
+.gp-lg {
+  @apply gap-sm md:gap-md;
+}
+.gp-md {
   @apply gap-sm md:gap-md lg:gap-lg;
 }
-.gapping-lg {
-  @apply gap-sm md:gap-md lg:gap-lg;
-}
-.gapping-md {
-  @apply gap-sm md:gap-md lg:gap-lg;
-}
-.gapping-xl {
+.gp-xl {
   @apply gap-sm md:gap-md lg:gap-lg xl:gap-xl;
 }
 
-.padding-sm {
+.pd-sm {
+  @apply p-sm;
+}
+.pd-md {
+  @apply p-sm md:p-md;
+}
+.pd-lg {
   @apply p-sm md:p-md lg:p-lg;
 }
-.padding-md {
-  @apply p-sm md:p-md lg:p-lg;
-}
-.padding-lg {
-  @apply p-sm md:p-md lg:p-lg;
-}
-.padding-xl {
+.pd-xl {
   @apply p-sm md:p-md lg:p-lg xl:p-xl;
 }

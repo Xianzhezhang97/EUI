@@ -38,7 +38,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
       width = 200,
       disabled = false,
       onValueChange,
-      trackColor = 'var(--color-gray-950)',
+      trackColor = '#dae0e7',
       filledTrackColorFrom = 'var(--primary-400)',
       filledTrackColorTo = 'var(--primary-600)',
       thumbColor = 'var(--primary-500)',
@@ -172,14 +172,23 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
           }}
           className={cn('relative w-full grow overflow-hidden')}
         >
-          <div
+          <motion.div
+            initial={{
+              width: 0,
+            }}
+            animate={{
+              width: `${Math.max(0, Math.min(100, percentage))}%`,
+            }}
+            transition={{
+              duration: isTransition ? 1 : 0,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className={cn(
               'absolute',
-              isTransition &&
-                'transition-all duration-500 ease-[cubic-bezier(0.22, 1, 0.36, 1)]',
+              // isTransition &&
+              //   'transition-all duration-500 ease-[cubic-bezier(0.22, 1, 0.36, 1)]',
             )}
             style={{
-              width: `${Math.max(0, Math.min(100, percentage))}%`,
               background: `linear-gradient(to right, ${filledTrackColorFrom} -20%, ${filledTrackColorTo} 120%)`,
               height: `${height}px`,
             }}
@@ -188,18 +197,25 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
 
         {/* Thumb */}
         <motion.div
+          initial={{
+            left: 0,
+          }}
+          animate={{
+            left: `${Math.max(0, Math.min(100, percentage))}%`,
+          }}
           onMouseEnter={() => setIsTransition(!isDragging)}
           onMouseLeave={() => setIsTransition(!isDragging)}
+          transition={{
+            duration: isTransition ? 1 : 0,
+            ease: [0.22, 1, 0.36, 1],
+          }}
           className={cn(
             'absolute -translate-x-1/2 flex rounded-full border-2 border-white z-20',
             thumbBorderColor,
             thumbHoverColor,
-            isTransition &&
-              'transition-all duration-500 ease-[cubic-bezier(0.22, 1, 0.36, 1)]',
             disabled && 'cursor-not-allowed hover:scale-100',
           )}
           style={{
-            left: `${Math.max(0, Math.min(100, percentage))}%`,
             transform: 'translateX(-50%)',
             backgroundColor: thumbColor,
             width: `${height}px`,

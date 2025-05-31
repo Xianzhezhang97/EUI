@@ -2,6 +2,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { Alert } from './Alert';
+import { withAnimation } from '@/stories/decorators/animation';
 
 const meta = {
   title: 'Components/Alert',
@@ -26,6 +27,7 @@ const meta = {
       control: 'boolean',
     },
   },
+  decorators: [withAnimation],
 } satisfies Meta<typeof Alert>;
 
 export default meta;

@@ -17,7 +17,7 @@ export const AnimationDecorator: React.FC<AnimationDecoratorProps> = ({
 }) => {
   return (
     <div className='flex justify-center items-center border border-[#dae0e7] overflow-hidden rounded-xl m-xl'>
-      <div className='w-[600px] h-[400px]  bg-[#f8fafd] flex justify-center   relative items-center card-xl shadow-xl border-white/20'>
+      <div className='w-[800px] h-[600px]  bg-[#f8fafd] flex justify-center   relative items-center card-xl shadow-xl border-white/20'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ export const AnimationDecorator: React.FC<AnimationDecoratorProps> = ({
               duration: 0.7,
             },
           }}
-          className='flex flex-col gap-6 items-center justify-center'
+          className='flex flex-col gap-6 items-center justify-center p-xl  '
         >
           {children}
         </motion.div>
