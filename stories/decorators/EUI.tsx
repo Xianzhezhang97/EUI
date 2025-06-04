@@ -51,7 +51,7 @@ export const AnimationDecorator: React.FC<AnimationDecoratorProps> = ({
 
 import type { Decorator } from '@storybook/react';
 
-export const withAnimation: Decorator = (Story, context) => {
+export const EUI: Decorator = (Story, context) => {
   return (
     <AnimationDecorator sourceCode={context.args.sourceCode as string}>
       <Story />

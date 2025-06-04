@@ -2,13 +2,13 @@
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { Slider } from './Slider';
-import { withAnimation } from '@/stories/decorators/animation';
+import { EUI } from '@/stories/decorators/EUI';
 
 const meta = {
   title: 'Components/Slider',
   component: Slider,
   tags: ['autodocs'],
-  decorators: [withAnimation],
+  decorators: [EUI],
   parameters: {
     layout: 'centered',
   },

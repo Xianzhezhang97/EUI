@@ -1,6 +1,6 @@
 /** @format */
 
-import { withAnimation } from '@/stories/decorators/animation';
+import { EUI } from '@/stories/decorators/EUI';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ChevronRight, Plus } from 'lucide-react';
 import { Button } from '@/stories/Components/Button/Button';
@@ -17,7 +17,7 @@ const meta: Meta<typeof Button> = {
     //   },
     // },
   },
-  decorators: [withAnimation],
+  decorators: [EUI],
 
   argTypes: {
     variant: {
@@ -115,7 +115,12 @@ export const Large: Story = {
 
 export const IconWithPrimary: Story = {
   args: {
-    children: <Plus width={30} height={30} />,
+    children: (
+      <Plus
+        width={30}
+        height={30}
+      />
+    ),
     variant: 'primary',
     isPadding: false,
     size: 'noPadding',
@@ -124,7 +129,12 @@ export const IconWithPrimary: Story = {
 
 export const IconWithSecondary: Story = {
   args: {
-    children: <Plus width={30} height={30} />,
+    children: (
+      <Plus
+        width={30}
+        height={30}
+      />
+    ),
     variant: 'secondary',
     isPadding: false,
     size: 'noPadding',
@@ -133,7 +143,12 @@ export const IconWithSecondary: Story = {
 
 export const IconWithOutline: Story = {
   args: {
-    children: <Plus width={30} height={30} />,
+    children: (
+      <Plus
+        width={30}
+        height={30}
+      />
+    ),
     variant: 'outline',
     isPadding: false,
     size: 'noPadding',
@@ -142,7 +157,12 @@ export const IconWithOutline: Story = {
 
 export const IconWithGhost: Story = {
   args: {
-    children: <Plus width={30} height={30} />,
+    children: (
+      <Plus
+        width={30}
+        height={30}
+      />
+    ),
     variant: 'ghost',
     isPadding: false,
     size: 'noPadding',

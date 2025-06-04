@@ -1,7 +1,7 @@
 /** @format */
 
 // Avatar.stories.tsx
-import { withAnimation } from '@/stories/decorators/animation';
+import { EUI } from '@/stories/decorators/EUI';
 import { Meta, StoryObj } from '@storybook/react';
 import { Avatar } from './Avatar';
 import doc from './Avatar.md';
@@ -10,7 +10,7 @@ const meta: Meta<typeof Avatar> = {
   title: 'Components/Avatar',
   component: Avatar,
   tags: ['autodocs'],
-  decorators: [withAnimation],
+  decorators: [EUI],
   parameters: {
     layout: 'centered',
     header: 'The strongest Avatar component',
@@ -215,10 +215,22 @@ export const WithRingEffect: Story = {
 export const DifferentSizeAvatar: Story = {
   render: () => (
     <div className='center gap-16'>
-      <Avatar name='XS' size='sm' />
-      <Avatar name='MD' size='md' />
-      <Avatar name='LG' size='lg' />
-      <Avatar name='XL' size='xl' />
+      <Avatar
+        name='XS'
+        size='sm'
+      />
+      <Avatar
+        name='MD'
+        size='md'
+      />
+      <Avatar
+        name='LG'
+        size='lg'
+      />
+      <Avatar
+        name='XL'
+        size='xl'
+      />
     </div>
   ),
   parameters: {
@@ -234,7 +246,10 @@ export const AvatarWithDifferentMessage: Story = {
   render: () => (
     <div className='center gap-16'>
       <div className='flex flex-col items-center gap-4'>
-        <Avatar name='Online User' message={1} />
+        <Avatar
+          name='Online User'
+          message={1}
+        />
         <p>Online</p>
       </div>
       <div className='flex flex-col items-center gap-4'>
@@ -242,11 +257,19 @@ export const AvatarWithDifferentMessage: Story = {
         <p>Offline</p>
       </div>
       <div className='flex flex-col items-center gap-4'>
-        <Avatar name='Away User' status='away' message={2} />
+        <Avatar
+          name='Away User'
+          status='away'
+          message={2}
+        />
         <p>Away</p>
       </div>
       <div className='flex flex-col items-center gap-4'>
-        <Avatar name='Busy User' status='busy' message={125} />
+        <Avatar
+          name='Busy User'
+          status='busy'
+          message={125}
+        />
         <p>Busy</p>
       </div>
     </div>

@@ -2,14 +2,14 @@
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { Card } from './Card';
-import { withAnimation } from '@/stories/decorators/animation';
+import { EUI } from '@/stories/decorators/EUI';
 
 const meta = {
   title: 'Components/Card',
   component: Card,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],
-  decorators: [withAnimation],
+  decorators: [EUI],
   argTypes: {
     variant: {
       control: 'select',

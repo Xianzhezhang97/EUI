@@ -1,6 +1,6 @@
 /** @format */
 
-import { withAnimation } from '@/stories/decorators/animation';
+import { EUI } from '@/stories/decorators/EUI';
 import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent, within } from '@storybook/test';
 import { Settings, X } from 'lucide-react';
@@ -21,7 +21,7 @@ const meta = {
   },
   tags: ['autodocs'],
 
-  decorators: [withAnimation],
+  decorators: [EUI],
 
   argTypes: {
     title: {
@@ -196,7 +196,10 @@ export const WithMultipleSections: Story = {
       <Accordion title='First Section'>
         <p>Content for the first section.</p>
       </Accordion>
-      <Accordion title='Second Section' defaultOpen>
+      <Accordion
+        title='Second Section'
+        defaultOpen
+      >
         <p>Content for the second section.</p>
       </Accordion>
       <Accordion
