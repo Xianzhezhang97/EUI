@@ -50,16 +50,16 @@ export const Digit: React.FC<{
       : isDecimalPoint
       ? '0.4em'
       : isNumber
-      ? '0.8em'
+      ? '0.7em'
       : '1em',
     height: '1em',
-    margin: isComma || isDecimalPoint ? '0 -0.05em' : '',
+    margin: isComma || isDecimalPoint ? '0 -0.02em' : '0 -0.02em',
   };
 
   const separatorClass = isComma
-    ? 'text-gray-400'
+    ? 'text-gray-600'
     : isDecimalPoint
-    ? 'text-gray-900'
+    ? 'text-gray-600'
     : 'text-black';
 
   // 渲染无动画模式

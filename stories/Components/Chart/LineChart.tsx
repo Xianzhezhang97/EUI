@@ -21,6 +21,7 @@ interface LineChartProps {
   showValues?: boolean; // 是否显示值
   showGrid?: boolean; // 是否显示网格线
   gridType?: 'horizontal' | 'vertical' | 'both'; // 网格线类型
+  ValueProps?: any;
 }
 
 // Modern color palette
@@ -74,6 +75,7 @@ const LineChart = ({
   showValues = true,
   showGrid = true,
   gridType = 'both',
+  ValueProps,
 }: LineChartProps) => {
   // Check if data has multiple series
   const hasMultipleSeries =
@@ -116,7 +118,7 @@ const LineChart = ({
           />
         )}
         <Tooltip
-          content={<ChartTooltip />}
+          content={<ChartTooltip ValueProps={ValueProps} />}
           cursor={false}
         />
 

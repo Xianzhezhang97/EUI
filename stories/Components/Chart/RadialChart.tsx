@@ -31,7 +31,9 @@ interface RadialChartProps {
   outerRadius?: string | number; // Added outerRadius
   barSize?: number; // Added barSize
   // New prop for hover effect customization
+  isShortFormat?: boolean;
   hoverAnimationDuration?: number; // New prop for controlling hover animation speed
+  ValueProps?: any;
 }
 
 // Default color palette if not provided in data items
@@ -55,11 +57,13 @@ export const RadialChart: React.FC<RadialChartProps> = ({
   showLegend = true,
   customTooltip,
   height = '100%',
-  startAngle = 90, // Default startAngle
-  endAngle = -270, // Default endAngle for a full circle effect
+  startAngle = 95, // Default startAngle
+  endAngle = -275, // Default endAngle for a full circle effect
   innerRadius = '20%',
   outerRadius = '90%',
   barSize = 10,
+  isShortFormat = false,
+  ValueProps,
   hoverAnimationDuration = DEFAULT_HOVER_ANIMATION_DURATION,
 }) => {
   const [activeName, setActiveName] = useState<string | null>(null);
@@ -169,7 +173,9 @@ export const RadialChart: React.FC<RadialChartProps> = ({
                 <ChartTooltip
                   active={active}
                   payload={transformedPayload}
-                  label={data.payload[nameKey]} // 使用 nameKey 对应的值作为标题
+                  label={data.payload[nameKey]}
+                  isShortFormat={isShortFormat}
+                  ValueProps={ValueProps} // 使用 nameKey 对应的值作为标题
                 />
               );
             }

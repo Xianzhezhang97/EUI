@@ -29,8 +29,8 @@ interface AreaChartProps {
   stackOffset?: 'expand' | 'none' | 'silhouette' | 'wiggle';
   showDots?: boolean | 'visible' | 'hidden' | object;
   gradientFill?: boolean;
-  customTooltip?: React.ReactElement | ((props: any) => React.ReactElement);
   yKeys?: string[];
+  ValueProps?: any;
 }
 
 // Modern color palette
@@ -101,7 +101,7 @@ const AreaChart = ({
   stackOffset = 'none',
   showDots = 'hidden',
   gradientFill = false,
-  customTooltip,
+  ValueProps,
 }: AreaChartProps) => {
   const seriesKeys =
     yKeys && yKeys.length > 0
@@ -242,7 +242,7 @@ const AreaChart = ({
           />
         )}
         <Tooltip
-          content={<ChartTooltip />}
+          content={<ChartTooltip ValueProps={ValueProps} />}
           cursor={false}
         />
         {showLegend && <Legend wrapperStyle={{ paddingTop: '20px' }} />}

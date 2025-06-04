@@ -2,6 +2,7 @@ import React from 'react';
 import { Number } from '../Number/Number';
 
 export interface ChartTooltipPropsItem {
+  isShortFormat?: boolean;
   name?: string | number | undefined; // Modified: Allow string or number for name
   value: number | string | undefined; // Modified: Allow undefined to match Recharts payload
   color?: string; // Recharts own color for the series/item
@@ -16,19 +17,21 @@ export interface ChartTooltipPropsItem {
 }
 
 export interface ChartTooltipProps {
+  isShortFormat?: boolean;
   active?: boolean;
   payload?: ChartTooltipPropsItem[];
   label?: string | number; // This is the default label from Recharts (e.g., x-axis category)
   nameKey?: string; // Kept for potential fallback, but primary is item.name
-  // formatter?: (value: number | string, name: string, item: any, index: number) => React.ReactNode;
-  // labelFormatter?: (label: string | number) => React.ReactNode;
+  ValueProps?: any;
 }
 
 export const ChartTooltip: React.FC<ChartTooltipProps> = ({
+  isShortFormat = false,
   active,
   payload,
   label, // Recharts default label - this is our new title
   nameKey = 'name', // Default still 'name', used as fallback
+  ValueProps,
 }) => {
   if (active && payload && payload.length) {
     const displayLabel = label != null ? String(label) : null; // Use the Recharts label as the title
@@ -71,38 +74,19 @@ export const ChartTooltip: React.FC<ChartTooltipProps> = ({
                   className='size-sm shrink-0 rounded-[3px]'
                   style={{ backgroundColor: itemColor }}
                 />
-                <div className='flex flex-1 items-center justify-between w-[100px]'>
+                <div className='flex flex-1 items-center justify-between w-full'>
                   {/* Conditionally render the item name (label) */}
                   {itemName && itemName.trim() !== '' && (
-                    <span className='text-gray-500 text-xs'>{itemName}</span>
+                    <span className='text-gray-500 text-xs mr-3'>
+                      {itemName}
+                    </span>
                   )}
                   {/* Ensure value is always shown, adjust spacing if name is absent */}
                   <div className='flex flex-col items-center gap-2'>
-                    {/* {typeof item.value === 'number'
-                      ? item.value.toLocaleString()
-                      : item.value} */}
                     <Number
                       value={item.value}
-                      format='decimal'
-                      useShortFormat={true}
-                      numberType='standard'
-                      animation='slide'
-                      debounceTime={0}
-                      duration={1}
-                      decimalPlaces={1}
-                      className={`font-medium text-xs text-red-500 ${
-                        !itemName || itemName.trim() === '' ? 'ml-auto' : ''
-                      }`}
-                    />
-                    <Number
-                      value={item.value}
-                      useShortFormat={false}
-                      numberType='standard'
-                      animation='slide'
-                      debounceTime={0}
-                      duration={1}
-                      // decimalPlaces={-}
-                      className={`font-medium text-[10px] text-red-500 ${
+                      {...ValueProps}
+                      className={`font-medium text-xs  ${
                         !itemName || itemName.trim() === '' ? 'ml-auto' : ''
                       }`}
                     />

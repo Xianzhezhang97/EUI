@@ -23,6 +23,8 @@ interface BarChartProps {
   showGridX?: boolean; // 是否显示X轴网格线
   showGridY?: boolean; // 是否显示Y轴网格线
   gridType?: 'horizontal' | 'vertical' | 'both'; // 网格线类型
+  isShortFormat?: boolean;
+  ValueProps?: any;
 }
 
 // Modern color palette with bright, accessible colors
@@ -76,6 +78,7 @@ const BarChart = ({
   showGridX = false,
   showGridY = false,
   gridType = 'both',
+  ValueProps,
 }: BarChartProps) => {
   const firstItem = data && data.length > 0 ? data[0] : {};
   const hasMultipleSeries =
@@ -136,7 +139,7 @@ const BarChart = ({
           />
         )}
         <Tooltip
-          content={<ChartTooltip />}
+          content={<ChartTooltip ValueProps={ValueProps} />}
           cursor={{
             fill: 'var(--muted-foreground)',
             fillOpacity: 0.05,

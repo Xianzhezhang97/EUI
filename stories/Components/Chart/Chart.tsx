@@ -23,34 +23,25 @@ export interface ChartProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   showGridX?: boolean; // Prop for BarChart, potentially generalizable
   showGridY?: boolean; // Prop for BarChart, potentially generalizable
-
-  // AreaChart specific props - to be passed through
-  yKeys?: string[]; // For multi-series area charts
+  yKeys?: string[];
   interpolationType?: RechartsAreaProps['type'];
   showLegend?: boolean;
   stacked?: boolean;
   stackOffset?: 'expand' | 'none' | 'silhouette' | 'wiggle';
   showDots?: boolean | 'visible' | 'hidden' | object;
   gradientFill?: boolean;
-  // Add other AreaChart-specific props here as they are developed
-  // Example: customTooltip prop if you want to expose it through Chart.tsx
-  // customTooltip?: React.ReactElement | ((props: any) => React.ReactElement);
-
-  // RadarChart specific props
   radarGridType?: 'polygon' | 'circle';
-  radarShowDots?: boolean | RechartsRadarProps['dot']; // Using radarShowDots to avoid conflict with general showDots
+  radarShowDots?: boolean | RechartsRadarProps['dot'];
   radarActiveDot?: RechartsRadarProps['activeDot'];
-
-  // RadialChart specific props (subset for simplicity, more can be added)
-  nameKey?: string; // Can serve as an alternative to xKey for some chart types
-  valueKey?: string; // Can serve as an alternative to yKey for some chart types
+  nameKey?: string;
+  valueKey?: string;
   radialStartAngle?: number;
   radialEndAngle?: number;
   radialInnerRadius?: string | number;
   radialOuterRadius?: string | number;
   radialBarSize?: number;
-  radialHoverAnimationDuration?: number; // Renamed to be more specific to radial
-  // Note: customTooltip is a general prop that could be lifted here if needed for all charts
+  radialHoverAnimationDuration?: number;
+  ValueProps?: any;
 }
 
 export const Chart = React.forwardRef<HTMLDivElement, ChartProps>(
@@ -77,14 +68,15 @@ export const Chart = React.forwardRef<HTMLDivElement, ChartProps>(
       radarGridType,
       radarShowDots,
       radarActiveDot,
-      nameKey, // Direct prop
-      valueKey, // Direct prop
+      nameKey,
+      valueKey,
       radialStartAngle,
       radialEndAngle,
       radialInnerRadius,
       radialOuterRadius,
       radialBarSize,
-      radialHoverAnimationDuration, // Destructure new prop
+      radialHoverAnimationDuration,
+      ValueProps,
       ...props
     },
     ref,
@@ -145,6 +137,7 @@ export const Chart = React.forwardRef<HTMLDivElement, ChartProps>(
         color,
         showLegend,
         title,
+        ValueProps,
       };
 
       switch (chartType) {
@@ -157,6 +150,7 @@ export const Chart = React.forwardRef<HTMLDivElement, ChartProps>(
               multiColor={multiColor}
               showGridX={showGridX}
               showGridY={showGridY}
+              ValueProps={ValueProps}
             />
           );
         case 'line':
@@ -165,6 +159,7 @@ export const Chart = React.forwardRef<HTMLDivElement, ChartProps>(
               {...commonChartProps}
               xKey={effectiveXKey}
               yKey={effectiveYKeyBase as string}
+              ValueProps={ValueProps}
             />
           );
         case 'area':
@@ -179,6 +174,7 @@ export const Chart = React.forwardRef<HTMLDivElement, ChartProps>(
               stackOffset={stackOffset}
               showDots={showDots}
               gradientFill={gradientFill}
+              ValueProps={ValueProps}
             />
           );
         case 'pie':
@@ -187,6 +183,7 @@ export const Chart = React.forwardRef<HTMLDivElement, ChartProps>(
               {...commonChartProps}
               xKey={effectiveXKey}
               yKey={effectiveYKeyBase}
+              ValueProps={ValueProps}
             />
           );
         case 'radar':
@@ -199,6 +196,7 @@ export const Chart = React.forwardRef<HTMLDivElement, ChartProps>(
               gridType={radarGridType}
               showDots={radarShowDots}
               activeDot={radarActiveDot}
+              ValueProps={ValueProps}
             />
           );
         case 'radial':
@@ -213,6 +211,7 @@ export const Chart = React.forwardRef<HTMLDivElement, ChartProps>(
               outerRadius={radialOuterRadius}
               barSize={radialBarSize}
               hoverAnimationDuration={radialHoverAnimationDuration}
+              ValueProps={ValueProps}
             />
           );
         default:

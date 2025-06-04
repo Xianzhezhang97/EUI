@@ -213,6 +213,14 @@ const radarData = [
   { subject: 'Biology', score: 80 },
 ];
 
+const radarShotFormatData = [
+  { subject: 'Jan', profit: 18000 },
+  { subject: 'Feb', profit: 25000 },
+  { subject: 'Mar', profit: 24000 },
+  { subject: 'Apr', profit: 18000 },
+  { subject: 'May', profit: 15000 },
+  { subject: 'Jun', profit: 12000 },
+];
 // Multi-series Radar chart data
 const multiSeriesRadarData = [
   { subject: 'Math', studentA: 120, studentB: 110, studentC: 100 },
@@ -239,26 +247,69 @@ const radialDataSimple = [
   { name: 'D', people: 30 },
 ];
 
+const radialDataCostomize1 = [
+  { name: 'A', people: 75000 },
+  { name: 'B', people: 60000 },
+  { name: 'C', people: 45000 },
+  { name: 'D', people: 30000 },
+];
+
+const radialDataCostomize2 = [
+  { name: 'A', people: 75000 },
+  { name: 'B', people: 60000 },
+  { name: 'C', people: 450000 },
+  { name: 'D', people: 300000 },
+];
 // Bar Chart examples
 export const BarChartExample: Story = {
   args: {
     type: 'bar',
     data: [
-      { name: 'Jan', app: 400 },
-      { name: 'Feb', app: 300 },
-      { name: 'Mar', app: 600 },
-      { name: 'Apr', app: 800 },
-      { name: 'May', app: 500 },
-      { name: 'Jun', app: 900 },
+      { name: 'Jan', app: 800 },
+      { name: 'Feb', app: 500 },
+      { name: 'Mar', app: 2400 },
+      { name: 'Apr', app: 1800 },
+      { name: 'May', app: 1500 },
+      { name: 'Jun', app: 1200 },
     ],
     xKey: 'name',
     yKey: 'app',
     title: 'Monthly Performance',
-    multiColor: true,
+    multiColor: false,
     showGridX: true,
     showGridY: false,
     size: 'md',
-    color: 'rgba(0, 0, 0, 0)',
+    color: '#07dcd4',
+  },
+};
+
+export const BarChartShotFormat: Story = {
+  args: {
+    type: 'bar',
+    data: [
+      { name: 'Jan', app: 18232 },
+      { name: 'Feb', app: 25124 },
+      { name: 'Mar', app: 24125 },
+      { name: 'Apr', app: 18162 },
+      { name: 'May', app: 15635 },
+      { name: 'Jun', app: 12145 },
+    ],
+    xKey: 'name',
+    yKey: 'app',
+    title: 'Monthly Performance ( All label is short format )',
+    ValueProps: {
+      format: 'currency',
+      numberType: 'standard',
+      animation: 'slide',
+      maxNumberPlaces: 3,
+      duration: 1,
+      decimalPlaces: 0,
+    },
+    multiColor: false,
+    showGridX: true,
+    showGridY: false,
+    size: 'md',
+    color: '#0be03d',
   },
 };
 
@@ -288,6 +339,19 @@ export const LineChartExample: Story = {
     xKey: 'month',
     yKey: 'revenue',
     title: 'Monthly Revenue',
+  },
+};
+
+export const LineChartShotFormat: Story = {
+  args: {
+    type: 'line',
+    data: lineData,
+    xKey: 'month',
+    yKey: 'revenue',
+    title: 'Monthly Revenue ( All label is short format )',
+    ValueProps: {
+      useShortFormat: true,
+    },
   },
 };
 
@@ -335,7 +399,26 @@ export const AreaChartExample: Story = {
     showGridY: true,
   },
 };
-
+export const AreaChartShotFormat: Story = {
+  args: {
+    type: 'area',
+    data: areaData,
+    xKey: 'date',
+    yKey: 'users',
+    title: 'User Growth ( All label is short format )',
+    color: '#3b82f6',
+    showGridY: true,
+    ValueProps: {
+      useShortFormat: true,
+      format: 'currency',
+      numberType: 'standard',
+      animation: 'slide',
+      maxNumberPlaces: 3,
+      duration: 1,
+      decimalPlaces: 0,
+    },
+  },
+};
 export const AreaChartLinear: Story = {
   args: {
     type: 'area',
@@ -399,6 +482,15 @@ export const AreaChartGradient: Story = {
     color: '#8b5cf6',
     gradientFill: true,
     showGridY: true,
+    ValueProps: {
+      // useShortFormat: true,
+      format: 'currency',
+      numberType: 'standard',
+      animation: 'slide',
+      maxNumberPlaces: 3,
+      duration: 1,
+      decimalPlaces: 0,
+    },
   },
 };
 
@@ -429,7 +521,6 @@ export const AreaChartMultiSeriesStackedWithDots: Story = {
   },
 };
 
-// Pie Chart examples
 export const PieChartExample: Story = {
   args: {
     type: 'pie',
@@ -441,6 +532,26 @@ export const PieChartExample: Story = {
   },
 };
 
+export const PieChartShotFormat: Story = {
+  args: {
+    type: 'pie',
+    data: pieData,
+    nameKey: 'category',
+    valueKey: 'sales',
+    title: 'Sales by Platform ( All label is short format )',
+    showLegend: true,
+    ValueProps: {
+      useShortFormat: true,
+      format: 'currency',
+      numberType: 'standard',
+      animation: 'slide',
+      maxNumberPlaces: 3,
+      duration: 1,
+      decimalPlaces: 0,
+    },
+  },
+};
+
 export const PieChartMultiColor: Story = {
   args: {
     ...PieChartExample.args,
@@ -448,15 +559,31 @@ export const PieChartMultiColor: Story = {
   },
 };
 
-// Radar Chart examples
 export const RadarChartExample: Story = {
   args: {
     type: 'radar',
-    data: radarData, // Single series data
+    data: radarData,
     nameKey: 'subject',
-    valueKey: 'score', // yKey will be used as seriesKey if yKeys not provided
+    valueKey: 'score',
     title: 'Student Performance (Single Series)',
-    color: '#8b5cf6', // This color will be used for the single radar series
+    color: '#8b5cf6',
+    showLegend: false,
+    radarShowDots: true,
+    radarGridType: 'polygon',
+  },
+};
+
+export const RadarChartShotFormat: Story = {
+  args: {
+    type: 'radar',
+    data: radarShotFormatData,
+    nameKey: 'subject',
+    valueKey: 'profit',
+    title: 'Student Performance ( All label is short format )',
+    ValueProps: {
+      useShortFormat: true,
+    },
+    color: '#0be03d',
     showLegend: false,
     radarShowDots: true,
     radarGridType: 'polygon',
@@ -521,5 +648,51 @@ export const RadialChartSimple: Story = {
     radialStartAngle: 90,
     radialEndAngle: -270,
     size: 'sm',
+  },
+};
+
+export const RadialChartCostmiseValue1: Story = {
+  args: {
+    type: 'radial',
+    data: radialDataCostomize1,
+    nameKey: 'name',
+    valueKey: 'people',
+    title: 'Progress Overview ( All label is short format )',
+    showLegend: false,
+    radialInnerRadius: '50%',
+    radialOuterRadius: '100%',
+    radialBarSize: 20,
+    size: 'sm',
+    ValueProps: {
+      format: 'currency',
+      useShortFormat: true,
+      numberType: 'standard',
+      animation: 'slide',
+      duration: 1,
+      decimalPlaces: 1,
+    },
+  },
+};
+
+export const RadialChartCostmiseValue2: Story = {
+  args: {
+    type: 'radial',
+    data: radialDataCostomize2,
+    nameKey: 'name',
+    valueKey: 'people',
+    title: 'Progress Overview ( All label is short format )',
+    showLegend: false,
+    radialInnerRadius: '50%',
+    radialOuterRadius: '100%',
+    radialBarSize: 20,
+    size: 'sm',
+    ValueProps: {
+      format: 'standard',
+      useShortFormat: true,
+      numberType: 'standard',
+      animation: 'slide',
+      duration: 1,
+      decimalPlaces: 1,
+    },
   },
 };

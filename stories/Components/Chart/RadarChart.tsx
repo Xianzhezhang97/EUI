@@ -26,6 +26,7 @@ interface RadarChartProps {
   customTooltip?: React.ReactElement | ((props: any) => React.ReactElement);
   showDots?: boolean | RechartsRadarProps['dot'];
   activeDot?: RechartsRadarProps['activeDot'];
+  ValueProps?: any;
 }
 
 // Modern color palette with bright, accessible colors
@@ -59,6 +60,7 @@ const RadarChart = ({
   customTooltip,
   showDots = true,
   activeDot = { r: 6 },
+  ValueProps,
 }: RadarChartProps) => {
   const seriesKeys =
     yKeys ||
@@ -178,6 +180,7 @@ const RadarChart = ({
               return (
                 <ChartTooltip
                   active={active}
+                  ValueProps={ValueProps}
                   payload={transformedPayload}
                   label={originalData[xKey]} // 使用 subject 值作为 label
                 />

@@ -24,6 +24,7 @@ interface PieChartProps {
   innerRadius?: string | number;
   outerRadius?: string | number;
   showLabels?: boolean;
+  ValueProps?: any;
 }
 
 // Modern color palette with bright, accessible colors
@@ -90,6 +91,7 @@ const PieChart = ({
   innerRadius = '50%',
   outerRadius = '80%',
   showLabels = true,
+  ValueProps,
 }: PieChartProps) => {
   // Safety check
   if (!data || data.length === 0) {
@@ -135,7 +137,7 @@ const PieChart = ({
           ))}
         </Pie>
         <Tooltip
-          content={<ChartTooltip />}
+          content={<ChartTooltip ValueProps={ValueProps} />}
           cursor={false}
         />
         {showLegend && (
