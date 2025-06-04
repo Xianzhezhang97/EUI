@@ -77,13 +77,12 @@ export const ChartTooltip: React.FC<ChartTooltipProps> = ({
                     <span className='text-gray-500 text-xs'>{itemName}</span>
                   )}
                   {/* Ensure value is always shown, adjust spacing if name is absent */}
-                  <span>
+                  <div className='flex flex-col items-center gap-2'>
+                    {/* {typeof item.value === 'number'
+                      ? item.value.toLocaleString()
+                      : item.value} */}
                     <Number
-                      value={
-                        typeof item.value === 'number'
-                          ? item.value.toLocaleString()
-                          : item.value
-                      }
+                      value={item.value}
                       format='decimal'
                       useShortFormat={true}
                       numberType='standard'
@@ -91,13 +90,23 @@ export const ChartTooltip: React.FC<ChartTooltipProps> = ({
                       debounceTime={0}
                       duration={1}
                       decimalPlaces={1}
-                      // integerPartSize='0.8em'
-                      // decimalPartSize='0.8em'
                       className={`font-medium text-xs text-red-500 ${
                         !itemName || itemName.trim() === '' ? 'ml-auto' : ''
                       }`}
                     />
-                  </span>
+                    <Number
+                      value={item.value}
+                      useShortFormat={false}
+                      numberType='standard'
+                      animation='slide'
+                      debounceTime={0}
+                      duration={1}
+                      // decimalPlaces={-}
+                      className={`font-medium text-[10px] text-red-500 ${
+                        !itemName || itemName.trim() === '' ? 'ml-auto' : ''
+                      }`}
+                    />
+                  </div>
                 </div>
               </div>
             );

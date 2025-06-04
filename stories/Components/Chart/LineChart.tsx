@@ -93,8 +93,8 @@ const LineChart = ({
           <CartesianGrid
             strokeDasharray='3 3'
             className='stroke-muted-foreground/20'
-            // vertical={gridType === 'both' || gridType === 'vertical'}
-            // horizontal={gridType === 'both' || gridType === 'horizontal'}
+            vertical={gridType === 'both' || gridType === 'vertical'}
+            horizontal={gridType === 'both' || gridType === 'horizontal'}
           />
         )}
         {showXAxis && (
