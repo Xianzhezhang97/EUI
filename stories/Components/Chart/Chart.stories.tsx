@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Chart, ChartProps } from '@/stories/Components/Chart/Chart';
+import { EUI } from '@/stories/decorators/EUI';
 
 const meta: Meta<typeof Chart> = {
   title: 'UI/Components/Chart',
@@ -7,6 +8,7 @@ const meta: Meta<typeof Chart> = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [EUI],
   tags: ['autodocs'],
   argTypes: {
     type: {
@@ -155,14 +157,6 @@ export default meta;
 type Story = StoryObj<typeof Chart>;
 
 // Sample data for our charts
-const barData = [
-  { name: 'Jan', value: 400 },
-  { name: 'Feb', value: 300 },
-  { name: 'Mar', value: 600 },
-  { name: 'Apr', value: 800 },
-  { name: 'May', value: 500 },
-  { name: 'Jun', value: 900 },
-];
 
 const lineData = [
   { month: 'Jan', revenue: 1000 },
@@ -239,19 +233,26 @@ const radialData = [
 ];
 
 const radialDataSimple = [
-  { name: 'A', value: 75 },
-  { name: 'B', value: 60 },
-  { name: 'C', value: 45 },
-  { name: 'D', value: 30 },
+  { name: 'A', people: 75 },
+  { name: 'B', people: 60 },
+  { name: 'C', people: 45 },
+  { name: 'D', people: 30 },
 ];
 
 // Bar Chart examples
 export const BarChartExample: Story = {
   args: {
     type: 'bar',
-    data: barData,
+    data: [
+      { name: 'Jan', app: 400 },
+      { name: 'Feb', app: 300 },
+      { name: 'Mar', app: 600 },
+      { name: 'Apr', app: 800 },
+      { name: 'May', app: 500 },
+      { name: 'Jun', app: 900 },
+    ],
     xKey: 'name',
-    yKey: 'value',
+    yKey: 'app',
     title: 'Monthly Performance',
     multiColor: true,
     showGridX: true,
@@ -511,7 +512,7 @@ export const RadialChartSimple: Story = {
     type: 'radial',
     data: radialDataSimple,
     nameKey: 'name',
-    valueKey: 'value',
+    valueKey: 'people',
     title: 'Progress Overview (Radial Simple)',
     showLegend: false,
     radialInnerRadius: '50%',

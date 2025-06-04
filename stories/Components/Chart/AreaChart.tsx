@@ -9,7 +9,7 @@ import {
   Legend,
   type AreaProps as RechartsAreaProps,
 } from 'recharts';
-import { ChartTooltip } from './ChartTooltip';
+import { ChartTooltip } from './Tooltip';
 
 interface AreaChartProps {
   data: any[];
@@ -242,8 +242,8 @@ const AreaChart = ({
           />
         )}
         <Tooltip
-          content={customTooltip || <ChartTooltip title={title} />}
-          cursor={{ fill: 'var(--muted-foreground)', fillOpacity: 0.05 }}
+          content={<ChartTooltip />}
+          cursor={false}
         />
         {showLegend && <Legend wrapperStyle={{ paddingTop: '20px' }} />}
 

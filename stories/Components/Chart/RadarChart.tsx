@@ -9,7 +9,7 @@ import {
   Legend,
   type RadarProps as RechartsRadarProps,
 } from 'recharts';
-import { ChartTooltip } from './ChartTooltip';
+import { ChartTooltip } from './Tooltip';
 
 interface RadarChartProps {
   data: any[];
@@ -156,7 +156,35 @@ const RadarChart = ({
         )}
         {renderRadars()}
         <Tooltip
-          content={customTooltip || <ChartTooltip title={title} />}
+          content={({ active, payload, label }) => {
+            if (customTooltip) {
+              if (typeof customTooltip === 'function') {
+                return customTooltip({ active, payload, label });
+              }
+              return customTooltip;
+            }
+            if (active && payload && payload.length) {
+              const originalData = payload[0].payload;
+              // 转换 payload 以适应 ChartTooltip 的数据结构
+              const transformedPayload = payload.map((entry) => ({
+                name: entry.dataKey, // 使用 dataKey 作为系列名称 (studentA, studentB, etc.)
+                value: entry.value as number, // 确保 value 是 number 类型
+                color: entry.color || entry.stroke,
+                payload: entry.payload,
+                fill: entry.fill,
+                stroke: entry.stroke,
+              }));
+
+              return (
+                <ChartTooltip
+                  active={active}
+                  payload={transformedPayload}
+                  label={originalData[xKey]} // 使用 subject 值作为 label
+                />
+              );
+            }
+            return null;
+          }}
           cursor={{ fill: 'var(--muted-foreground)', fillOpacity: 0.05 }}
         />
         {showLegend && <Legend wrapperStyle={{ paddingTop: '20px' }} />}

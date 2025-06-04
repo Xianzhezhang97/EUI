@@ -26,19 +26,14 @@ const ChartWrapper = ({
     <div
       ref={ref}
       className={cn('w-[400px] h-[300px]', className)}
-      // style={{
-      //   '--background': 'white',
-      //   '--foreground': '#333',
-      //   '--muted-foreground': '#666',
-      //   '--border': '#e5e7eb',
-      // } as React.CSSProperties}
       {...props}
     >
-      {/* {title && (
-        // <h3 className="text-sm font-medium text-gray-900 mb-4">
-        //   {}
-        // </h3>
-      )} */}
+      {title && (
+        <h4 className='font-medium text-gray-900 mb-8 text-center text-nowrap'>
+          {title}
+        </h4>
+      )}
+
       <div
         className={cn('w-full h-full', sizeStyles[size], 'overflow-hidden')}
         style={{ position: 'relative' }}

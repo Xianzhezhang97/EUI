@@ -8,7 +8,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { ChartTooltip } from './ChartTooltip';
+import { ChartTooltip } from './Tooltip';
 
 interface BarChartProps {
   title?: string;
@@ -55,7 +55,7 @@ const generateMultiBars = (data: any[], xKey: string) => {
       dataKey={key}
       name={key}
       fill={COLORS[index % COLORS.length]}
-      radius={[4, 4, 0, 0]}
+      radius={[9, 9, 9, 9]}
       animationDuration={1000}
       animationBegin={index * 100}
       isAnimationActive={true}
@@ -136,8 +136,11 @@ const BarChart = ({
           />
         )}
         <Tooltip
-          content={<ChartTooltip title={title} />}
-          cursor={{ fill: 'var(--muted-foreground)', fillOpacity: 0.05 }}
+          content={<ChartTooltip />}
+          cursor={{
+            fill: 'var(--muted-foreground)',
+            fillOpacity: 0.05,
+          }}
         />
         {hasMultipleSeries && multiColor ? (
           generateMultiBars(data, xKey)
@@ -146,7 +149,7 @@ const BarChart = ({
             dataKey={yKey as string}
             name={yKey as string}
             fill={multiColor ? undefined : color}
-            radius={[8, 8, 0, 0]}
+            radius={[999, 999, 999, 999]}
             animationDuration={1000}
             isAnimationActive={true}
           >

@@ -6,7 +6,7 @@ import {
   Tooltip,
   Legend,
 } from 'recharts';
-import { ChartTooltip } from './ChartTooltip';
+import { ChartTooltip } from './Tooltip';
 
 interface PieChartProps {
   data: any[];
@@ -135,18 +135,8 @@ const PieChart = ({
           ))}
         </Pie>
         <Tooltip
-          content={customTooltip || <ChartTooltip title={title} />}
-          contentStyle={{
-            backgroundColor: 'rgba(255, 255, 255, 0.5)',
-            color: 'var(--foreground)',
-            borderRadius: '0.5rem',
-            padding: '0.75rem',
-            boxShadow:
-              '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid var(--border)',
-          }}
-          itemStyle={{ color: 'var(--foreground)' }}
+          content={<ChartTooltip />}
+          cursor={false}
         />
         {showLegend && (
           <Legend

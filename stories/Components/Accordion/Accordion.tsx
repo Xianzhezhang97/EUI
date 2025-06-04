@@ -31,6 +31,8 @@ export interface AccordionProps
   contentClassName?: string;
   /** Custom class for the icon container */
   iconContainerClassName?: string;
+  /** The range of angles for the icon */
+  angleRange?: [number, number];
 }
 
 // Animation variants for better performance
@@ -54,10 +56,10 @@ const contentVariants = {
 };
 
 // Icon animation variants
-const iconVariants = {
-  open: { rotate: 180 },
-  closed: { rotate: 0 },
-};
+const iconVariants = (angleRange: number[]) => ({
+  open: { rotate: angleRange[0] },
+  closed: { rotate: angleRange[1] },
+});
 
 export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
   (
@@ -75,6 +77,7 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
       headerClassName,
       contentClassName,
       iconContainerClassName,
+      angleRange = [180, 0],
       ...props
     },
     ref,
@@ -207,7 +210,7 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
           <span className={cn('', headerClassName)}>{title}</span>
           <motion.div
             aria-hidden='true'
-            variants={iconVariants}
+            variants={iconVariants(angleRange)}
             initial={false}
             animate={isOpen ? 'open' : 'closed'}
             transition={{

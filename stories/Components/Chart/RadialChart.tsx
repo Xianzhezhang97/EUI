@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
-  ResponsiveContainer,
-  RadialBarChart as RechartsRadialBarChart,
-  RadialBar,
-  Legend,
-  Tooltip,
   PolarAngleAxis,
+  PolarGrid,
+  PolarRadiusAxis,
+  Radar,
+  RadarChart as RechartsRadarChart,
+  ResponsiveContainer,
+  Tooltip,
+  Legend,
+  RadialBar,
+  RadialBarChart as RechartsRadialBarChart,
+  type RadarProps as RechartsRadarProps,
 } from 'recharts';
-import { ChartTooltip } from './ChartTooltip'; // Assuming you want the custom tooltip
+import { ChartTooltip } from './Tooltip'; // Assuming you want the custom tooltip
 import hexToRgba from './utils/hexToRgba';
 
 interface RadialChartProps {
@@ -135,21 +140,43 @@ export const RadialChart: React.FC<RadialChartProps> = ({
               value: item[nameKey!],
               type: 'circle',
               id: item[nameKey!],
-              color: item.originalFill, // Use originalFill for legend color
+              color: item.originalFill,
             }))}
           />
         )}
         <Tooltip
-          content={customTooltip || <ChartTooltip title={title} />}
-          cursor={false} // Remove tooltip cursor (sector shape)
-          wrapperStyle={{ zIndex: 1000 }} // Ensure tooltip is on top
-          formatter={(value: any, name: any, entry: any) => {
-            const itemName =
-              entry.payload && entry.payload[nameKey!] != null
-                ? String(entry.payload[nameKey!])
-                : ''; // Use empty string if name not found, to satisfy "没有就不显示"
-            return [value, itemName];
+          content={({ active, payload }) => {
+            if (customTooltip) {
+              if (typeof customTooltip === 'function') {
+                return customTooltip({ active, payload });
+              }
+              return customTooltip;
+            }
+            if (active && payload?.[0]) {
+              const data = payload[0];
+              const transformedPayload = [
+                {
+                  name: 'Value', // 显示 "Value" 作为标签
+                  value: data.value as number,
+                  color: data.fill || data.color || data.stroke,
+                  fill: data.fill,
+                  stroke: data.stroke,
+                  payload: data.payload,
+                },
+              ];
+
+              return (
+                <ChartTooltip
+                  active={active}
+                  payload={transformedPayload}
+                  label={data.payload[nameKey]} // 使用 nameKey 对应的值作为标题
+                />
+              );
+            }
+            return null;
           }}
+          cursor={false}
+          wrapperStyle={{ zIndex: 1000 }}
         />
       </RechartsRadialBarChart>
     </ResponsiveContainer>

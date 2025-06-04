@@ -7,7 +7,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { ChartTooltip } from './ChartTooltip';
+import { ChartTooltip, type ChartTooltipPropsItem } from './Tooltip';
 
 interface LineChartProps {
   data: any[];
@@ -116,8 +116,8 @@ const LineChart = ({
           />
         )}
         <Tooltip
-          content={<ChartTooltip title={title} />}
-          cursor={{ fill: 'var(--muted-foreground)', fillOpacity: 0.05 }}
+          content={<ChartTooltip />}
+          cursor={false}
         />
 
         {hasMultipleSeries && multiColor ? (
