@@ -56,11 +56,7 @@ export const Digit: React.FC<{
     margin: isComma || isDecimalPoint ? '0 -0.02em' : '0 -0.02em',
   };
 
-  const separatorClass = isComma
-    ? 'text-gray-600'
-    : isDecimalPoint
-    ? 'text-gray-600'
-    : 'text-black';
+  const separatorClass = isComma ? '' : isDecimalPoint ? '' : '';
 
   // 渲染无动画模式
   if (animation === 'none') {
@@ -83,7 +79,7 @@ export const Digit: React.FC<{
     custom: direction,
     viewport: { margin: '30px 0px -30px 0px', once: true },
     transition: {
-      duration: duration / 2,
+      duration: duration,
       delay,
       type: 'spring',
       stiffness: 300,

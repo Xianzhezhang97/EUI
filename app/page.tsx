@@ -1,184 +1,251 @@
-/** @format */
 'use client';
-import Link from 'next/link';
-import { Button } from '@/stories/Components/Button/Button';
 import { useState } from 'react';
-import { Slider } from '@/stories/Components/Slider/Slider';
+import { Card } from '@/stories/Components/Card/Card';
+import { Button } from '@/stories/Components/Button/Button';
+import { motion } from 'framer-motion';
+import { Moon, Sun, Heart, Trophy } from 'lucide-react';
+import { LinkedInAvatar } from './components/LinkedInAvatar';
+import { StatsCard } from './components/StatsCard';
+import { PersonCard } from './components/PersonCard';
+import { getStats } from './data/stats';
+import messages from './data/messages.json';
+import { Dock } from 'lucide-react';
+import type { ContentMessages } from './types';
+import Link from 'next/link';
 
-/** @format */
-const practice = {
-  hooks: [
-    {
-      name: 'useState',
-      description:
-        'State Hook, allows you to add state to functional components.',
-      features: [
-        'Adds state to functional components.',
-        'Triggers a re-render when state is updated.',
-      ],
-      usage: 'const [state, setState] = useState(initialValue);',
-      example: 'const [count, setCount] = useState(0);',
-      returnType:
-        'Returns an array, the first element is the current state, and the second element is a function to update it.',
-    },
-    {
-      name: 'useEffect',
-      description:
-        'Effect Hook, used to perform side effects like data fetching, subscriptions, or manual DOM manipulation after render.',
-      features: [
-        'Executes after every render or based on specific dependency changes.',
-        'Can be used for async operations and lifecycle-like behavior in functional components.',
-      ],
-      usage: 'useEffect(() => { /* side effect code */ }, [dependencies]);',
-      example: "useEffect(() => { console.log('Component mounted'); }, []);",
-      returnType:
-        'Does not return anything. It accepts a cleanup function to run on component unmount.',
-    },
-    {
-      name: 'useContext',
-      description:
-        'Context Hook, used to access the value of a context in functional components.',
-      features: [
-        'Allows components to access global data.',
-        'Avoids prop drilling, making state available deep in the component tree.',
-      ],
-      usage: 'const value = useContext(MyContext);',
-      example: 'const theme = useContext(ThemeContext);',
-      returnType: 'Returns the current value of the context.',
-    },
-    {
-      name: 'useReducer',
-      description:
-        'Reducer Hook, an alternative to `useState` for handling more complex state logic.',
-      features: [
-        'Useful for handling complex state with multiple sub-values or when the next state depends on the previous state.',
-        'Uses a reducer function to handle state updates.',
-      ],
-      usage: 'const [state, dispatch] = useReducer(reducer, initialState);',
-      example: 'const [state, dispatch] = useReducer(reducer, { count: 0 });',
-      returnType:
-        'Returns an array, the first element is the state, and the second is a dispatch function to dispatch actions.',
-    },
-    {
-      name: 'useMemo',
-      description:
-        'Memoization Hook, helps optimize performance by memoizing values that depend on expensive calculations.',
-      features: [
-        'Memoizes a value to avoid recalculating it on every render unless its dependencies change.',
-        'Optimizes performance for computationally expensive functions.',
-      ],
-      usage:
-        'const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);',
-      example: 'const sortedData = useMemo(() => sortData(data), [data]);',
-      returnType: 'Returns the memoized value.',
-    },
-    {
-      name: 'useCallback',
-      description:
-        'Callback Hook, returns a memoized version of a function that only changes if one of the dependencies changes.',
-      features: [
-        'Optimizes performance by memoizing functions.',
-        'Useful for passing functions to child components to prevent unnecessary re-renders.',
-      ],
-      usage:
-        'const memoizedCallback = useCallback(() => { /* callback logic */ }, [dependencies]);',
-      example:
-        "const handleClick = useCallback(() => { console.log('clicked'); }, []);",
-      returnType: 'Returns the memoized function.',
-    },
-    {
-      name: 'useRef',
-      description:
-        'Ref Hook, provides a way to access and persist a reference to a DOM element or a mutable object.',
-      features: [
-        'Returns a mutable object that persists for the lifetime of the component.',
-        'Can be used to reference DOM elements directly.',
-      ],
-      usage: 'const myRef = useRef(initialValue);',
-      example: 'const inputRef = useRef(null);',
-      returnType: 'Returns a mutable object with a `current` property.',
-    },
-    {
-      name: 'useLayoutEffect',
-      description:
-        'Layout Effect Hook, similar to `useEffect`, but it fires synchronously after all DOM mutations, useful for DOM measurement.',
-      features: [
-        'Executes synchronously after all DOM mutations.',
-        'Useful for operations that need to read and modify the DOM before the browser paints.',
-      ],
-      usage: 'useLayoutEffect(() => { /* side effect */ }, [dependencies]);',
-      example: "useLayoutEffect(() => { console.log('Layout effect'); }, []);",
-      returnType: 'Does not return anything.',
-    },
-    {
-      name: 'useImperativeHandle',
-      description:
-        'Imperative Handle Hook, customizes the instance value that is exposed when using `ref` in parent components.',
-      features: [
-        'Used to define which values are exposed to parent components when using `ref`.',
-        'Allows you to hide or expose specific methods or values to parent components.',
-      ],
-      usage: 'useImperativeHandle(ref, () => ({ customMethod }));',
-      example:
-        'useImperativeHandle(myRef, () => ({ scrollToTop: () => window.scrollTo(0, 0) }));',
-      returnType:
-        'Returns the object or methods you want to expose to the parent component.',
-    },
-    {
-      name: 'useDebugValue',
-      description:
-        'Debugging Hook, displays a label in React DevTools for custom hooks.',
-      features: [
-        'Helps improve debugging by showing additional custom hook information in React DevTools.',
-      ],
-      usage: 'useDebugValue(value);',
-      example: 'useDebugValue(count);',
-      returnType: 'Does not return anything.',
-    },
-  ],
-};
-export default function Home() {
-  const [value, setValue] = useState(0);
+export default function OfferAnnouncement() {
+  const [darkMode, setDarkMode] = useState(false);
+  const [language, setLanguage] = useState<'zh' | 'en'>('zh');
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'zh' : 'en');
+  };
+
+  const currentMessages = messages[language] as ContentMessages;
+  const stats = getStats(language);
+
   return (
-    <div className='grid grid-cols-12 padding-lg g-lg gapping-xl'>
-      {practice.hooks.map((hook) => (
-        <Link
-          href={`/${hook.name}`}
-          key={hook.name}
-          className='card-lg
-         col xxl:col-span-2 xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 border overflow-auto'
-        >
-          <h3>{hook.name}</h3>
-          <p>{hook.description}</p>
-          {/* <div className='w-full overflow-auto p-2 bg-gray-500 text-white card-rounded card-padding'>
-            <pre>{hook.usage}</pre>
-            <pre>{hook.example}</pre>
-          </div> */}
-          {/* <p>{hook.returnType}</p> */}
-        </Link>
-      ))}
-      <Button
-        variant='primary'
-        size='lg'
-        onClick={() => console.log('clicked')}
-        // className="bg-primary-900 rounded-md flex items-center justify-center p-2"
+    <div
+      className={`min-h-screen pt-24 transition-all duration-500 ${
+        darkMode
+          ? 'bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 text-white'
+          : 'bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-zinc-900'
+      }`}
+    >
+      {/* 控制按钮 */}
+      <div
+        className='fixed top-0 left-0 h-16 p-3  flex justify-end
+       w-full right-0 flex items-center gap-3 z-10'
       >
-        Button
-      </Button>
-      <Slider
-        value={value}
-        onValueChange={setValue}
-        min={0}
-        max={100}
-        step={1}
-        className='w-full'
-        trackColor='bg-primary-200'
-        filledTrackColorFrom='bg-primary-400'
-        filledTrackColorTo='bg-primary-500'
-        thumbColor='bg-primary-500'
-        thumbBorderColor='border-primary-500'
-        thumbHoverColor='hover:bg-primary-500'
-      />
+        <a
+          href='https://xianzhe.site/'
+          target='_blank'
+        >
+          <Button
+            variant='icon'
+            isPadding={false}
+            onClick={() => setDarkMode(!darkMode)}
+            className={` border  ${
+              darkMode
+                ? 'bg-zinc-800 hover:bg-zinc-700'
+                : 'bg-zinc-100 hover:bg-zinc-700 hover:text-white'
+            }`}
+          >
+            <Dock className='w-5 h-5' />
+          </Button>
+        </a>
+        <Button
+          variant='icon'
+          isPadding={false}
+          onClick={() => setDarkMode(!darkMode)}
+          className={` border  ${
+            darkMode
+              ? 'bg-zinc-800 hover:bg-zinc-700'
+              : 'bg-zinc-100 hover:bg-zinc-700 hover:text-white'
+          }`}
+        >
+          {darkMode ? (
+            <Sun className='w-5 h-5' />
+          ) : (
+            <Moon className='w-5 h-5' />
+          )}
+        </Button>
+
+        <Button
+          onClick={toggleLanguage}
+          className={`  shadow-lg ${
+            darkMode
+              ? 'bg-blue-600 hover:bg-blue-700 text-white'
+              : 'bg-blue-600 hover:bg-blue-700 text-white'
+          }`}
+        >
+          {language === 'en' ? '中文' : 'English'}
+        </Button>
+      </div>
+
+      <div className='max-w-6xl mx-auto px-6 py-12'>
+        {/* 头部标题区域 */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className='text-center mb-12'
+        >
+          <div className='flex justify-center items-end gap-4 mb-6'>
+            <LinkedInAvatar
+              name='Scott Zhang'
+              size='w-48 h-48'
+              url='https://www.linkedin.com/in/yifan-ai-0000000000/'
+              src='https://img.picgo.net/2025/06/05/profile-copy46ff46bbb252fb3c.png'
+            />
+          </div>
+          <h1 className='text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent'>
+            {currentMessages.title}
+          </h1>
+          <p
+            className={`text-xl ${
+              darkMode ? 'text-zinc-400' : 'text-zinc-600'
+            } mb-8`}
+          >
+            {currentMessages.subtitle}
+          </p>
+        </motion.div>
+
+        {/* 统计数据 */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className='grid  [grid-template-columns:repeat(auto-fill,minmax(250px,1fr))] gap-6 mb-12 '
+        >
+          {stats.map((stat, index) => (
+            <StatsCard
+              key={index}
+              icon={stat.icon}
+              number={stat.number}
+              label={stat.label}
+              darkMode={darkMode}
+            />
+          ))}
+        </motion.div>
+
+        {/* 主要内容 */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '0px 0px -200px 0px' }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className='flex gap-4  items-center my-12 '
+        >
+          <div
+            className={`p-xl rounded-xl border  ${
+              darkMode
+                ? 'bg-gradient-to-t from-sky-950 to-blue-900 border-sky-900'
+                : 'bg-gradient-to-br from-blue-50 to-indigo-50 border-zinc-200'
+            }`}
+          >
+            <div className='prose dark:prose-invert max-w-none'>
+              <p className='text-lg leading-relaxed whitespace-pre-line'>
+                {currentMessages.intro}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* 感谢部分 */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className='mb-12'
+        >
+          <div className='flex items-center gap-3 mb-8'>
+            <Heart className='w-8 h-8 text-red-500' />
+            <h2 className='text-3xl font-bold'>
+              {currentMessages.thanksTitle}
+            </h2>
+          </div>
+
+          <div className='grid md:grid-cols-2 lg:grid-cols-2 gap-6'>
+            {currentMessages.people.map((person, index) => (
+              <PersonCard
+                key={person.name}
+                person={person}
+                index={index}
+                darkMode={darkMode}
+              />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* 结语 */}
+        <motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '0px 0px -200px 0px' }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className='flex gap-4  items-center my-12 '
+          >
+            <div
+              className={`p-xl rounded-xl border  ${
+                darkMode
+                  ? 'bg-sky-950 border-sky-900'
+                  : 'bg-white border-zinc-200'
+              }`}
+            >
+              <div className='prose dark:prose-invert max-w-none'>
+                <p className='text-lg leading-relaxed whitespace-pre-line'>
+                  <p className='text-base md:text-md lg:text-lg leading-relaxed mb-6'>
+                    {currentMessages.finalMessage}
+                  </p>
+                </p>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '0px 0px -200px 0px' }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className={` p-xl rounded-xl border  ${
+              darkMode
+                ? 'bg-gradient-to-r from-blue-900 to-indigo-900 border-blue-700'
+                : 'bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200'
+            }`}
+          >
+            <div className='text-left prose dark:prose-invert max-w-none'>
+              <div className=' text-lg md:text-xl lg:text-2xl font-medium text-left whitespace-pre-line'>
+                "{currentMessages.signature}"
+              </div>
+              <Link
+                href='https://www.linkedin.com/in/scottcheung1110/'
+                target='_blank'
+                className='flex items-start gap-4 mb-4'
+              >
+                <LinkedInAvatar
+                  name='Scott'
+                  src='https://img.picgo.net/2025/06/05/profile-copy46ff46bbb252fb3c.png'
+                  url='https://www.linkedin.com/in/scottcheung1110/'
+                />
+                <div className='flex-1'>
+                  <h3 className='text-xl font-bold mb-1'>Scott Cheung</h3>
+                  <div className='flex items-center gap-2 mb-2'>
+                    <Trophy className='w-4 h-4 text-yellow-500' />
+                    <span
+                      className={`text-sm font-medium ${
+                        darkMode ? 'text-yellow-400' : 'text-yellow-600'
+                      }`}
+                    >
+                      FullStack Developer
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 }

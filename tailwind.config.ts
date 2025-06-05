@@ -2,6 +2,7 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -11,6 +12,45 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '65ch',
+            color: 'inherit',
+            a: {
+              color: 'inherit',
+              textDecoration: 'none',
+              '&:hover': {
+                textDecoration: 'underline',
+              },
+            },
+            '[class~="lead"]': {
+              color: 'inherit',
+            },
+            strong: {
+              color: 'inherit',
+            },
+            h1: {
+              color: 'inherit',
+            },
+            h2: {
+              color: 'inherit',
+            },
+            h3: {
+              color: 'inherit',
+            },
+            h4: {
+              color: 'inherit',
+            },
+            blockquote: {
+              color: 'inherit',
+            },
+            code: {
+              color: 'inherit',
+            },
+          },
+        },
+      },
       colors: {
         primary: {
           50: '#f0f9ff',
@@ -152,6 +192,6 @@ const config: Config = {
     },
   },
 
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
 export default config;

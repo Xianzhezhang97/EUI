@@ -1,0 +1,259 @@
+{
+  "zh": {
+    "title": "我终于拿到了 Offer 了!!",
+    "subtitle": "感恩有你，也许只是短短相遇，但你的鼓励和善意，让我走得更坚定、更温柔。",
+    "intro": "大家好，我是 Scott。\n\n截止 5 月 27 日，已经有 634,120 人阅读了我找工作的故事。\n\n我总共投了 723 份简历，历经 269 天，接过 31 个 phone screen，经历了无数次模拟面试，14 次正式面试，5 次技术面，最后收获了 3 个 offer。目前我已经收获了全职正式的 offer。只有我自己知道，这一路走来有多么不容易。\n\n毕业后，我一边投简历，一边打工养活自己：IT 公司兼职、送外卖、洗碗、在餐厅端盘子…… 父母一直劝我回国，说语言熟、文化相通、机会更多。但我还是留在了澳洲。因为我喜欢这里城市与自然的融合，也渴望这里「工作与生活共存」的节奏。\n\n但现实很残酷。想找到真正「欣赏你」的公司太难了。\n\nJD（岗位描述）越看越困惑。一个岗位像是在招整个 IT 部门。每次看到 JD 都在怀疑自己：“这真的是我一个人能做的事吗？”为了不被淘汰，我只能不停学习、不停堆叠技能，在简历上“拼命卷”。可即便如此，面试机会依然寥寥无几。\n\n在图书馆的夜晚，我躲在天台偷偷流泪；在街头，我举起写着“HIRE ME”的牌子。我穿着西装，看起来很骄傲，很勇敢，只有自己知道自己内心多落寞。我很庆幸，我没有放弃。",
+    "thanksTitle": "感恩有你",
+    "people": [
+      {
+        "name": "Alice Almeida",
+        "award": "初见温柔奖",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQFPJHGZSZDG-g/profile-displayphoto-shrink_400_400/B56ZZgpYCjGcAg-/0/1745378182154?e=1754524800&v=beta&t=SCVH1QU-NeBOgdM-FZFssgFbAzbglmum2MUBk9PEdwE",
+        "url": "https://www.linkedin.com/in/alicemdonaldson/",
+        "description": "如你所说，我们并不认识，你却是第一个在 LinkedIn 为我宣传的人。那天我第一次走上街头举牌推销自己。你愿意停下脚步，不是出于猎奇，而是出于真诚，你没有任何犹豫，当即在 linkedin 分享了我的故事。你看到我，也选择让更多人看到我。在没有人看好我的时候，在我感到羞耻和脆弱的时候，你让我觉得自己值得被尊重。后来你还不时地鼓励我，我们虽只有一面之缘，但你就像那个在远处始终点灯的人，在我还没走出黑夜时，给我指引和光亮。你没有义务做这一切，可你还是做了。那份勇敢、真诚和善意，是我人生中很少遇见的馈赠。谢谢你，Alice。你是我从陌生人那里收到的第一份温暖，而这份温暖，恰好照亮了我最需要它的时刻。"
+      },
+      {
+        "name": "Yifan Ai",
+        "award": "默默放大微光奖",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQHwowO-f0Y7Tg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1673760812463?e=1754524800&v=beta&t=GwmFlqtWvhGMyfBjkUR7aYCaq_RyalrsKbaCaqmfywE",
+        "url": "https://www.linkedin.com/in/yifanai/",
+        "description": "你没有跟我说太多话，你默默帮我宣传，你是第二位在 LinkedIn 和小红书上分享我故事的人，但你带来的影响是巨大的 —— 单个平台就有五十多万次阅读、上百条条评论，让原本沉默无声的我被无数人看见。但比数据更重要的，是那份信任。你从未要求我证明什么，也不曾质疑我写的是否“合格”，你只是默默帮我把一束小小的光，放大成了照亮整个社群的火光。我记得你还跟我说过：“别灰心，继续努力，总会有人看到你。”在那个每周投几十份简历却没有回应的日子里，这句话我重复看了无数次。有些人，用的是语言帮人；而你，用的是行动帮人。Yifan，谢谢你。如果我这段路像是一场很长很长的马拉松，那你就是站在某个补给站，悄悄递水的那个人，不说话，却让我能继续往前跑。最近很高兴知道你升职了，为你高兴，未来的日子，祝你一切顺利。"
+      },
+      {
+        "name": "Alozio Ferreira",
+        "award": "情绪价值守护者奖",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQFX-9TEpyRGMw/profile-displayphoto-shrink_400_400/B56ZXpNHSWGsAg-/0/1743374284625?e=1754524800&v=beta&t=x3gMcqbxuso1JqBiD8uNprG5wQr0vKWhOEwQYbCS0D4",
+        "url": "https://www.linkedin.com/in/aloizio-ferreira-compart-6a7909202/",
+        "description": "Aloe，我们认识后，你几乎每天都和我聊天。从我第一次跟你说“我不知道怎么做”，你就没有再让我一个人独自面对。你是那个在我面试前主动发信息提醒、在我失败后安慰我“不是你的问题”、在我自我否定时坚定地说“你已经做得很好”的人。你甚至愿意自己出钱为我印名片，虽然我最后没去打印，但我永远记得你当时说：“你值得有机会被记住。”每一次模拟面试，每一次语音练习，每一次聊完技术话题后，我们闲聊几句生活琐事，甚至鼓励我去参加各种活动认识更多的人，都是我慢慢重建信心的过程。你告诉我，做人要自尊，要爱自己，不要轻易说“对不起”去迎合别人。即使是我们约时间一起准备我的面试，你也告诉我，不要完全按照别人的时间来计划。你告诉我要爱自己，我们甚至没有见过面，但我真的很感动。这些话听起来简单，但当时的我真的做不到从容和自信。是你一点一点把我从“觉得自己不行”里拉回来，让我开始试着相信：原来我也可以很好。我始终记得你也分享了你毕业后找工作的经历。那份共情，不只是理解，而是一种真正的陪伴感。谢谢你，Aloe。在我最孤单的时候，是你让我感觉自己并不孤单。未来的日子，我也希望，在你需要我的时候，我会可以给你支持和陪伴。"
+      },
+      {
+        "name": "Glody Santiago",
+        "award": "内在觉醒奖",
+        "src": "https://media.licdn.com/dms/image/v2/C5103AQEZ4JC3tba6QA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1566998037779?e=1754524800&v=beta&t=kEGb1hQxMJI-q3fZRW3rUx59V9HvkBmkNkP-b9p7IwY",
+        "url": "https://www.linkedin.com/in/glodys/",
+        "description": "我们第一次对话，我就知道你不仅仅是一个面试教练，而是一位很久不联系的老朋友，你不是告诉我“答案”的那种人，而是那种不断引导我去思考：我想要成为什么样的人、我真正的优势在哪、我的焦虑从何而来，我的问题是什么。那种方式，是深刻而温柔的。你帮我打磨的不只是简历或项目描述，更是一种内在的思维方式。你会认真听我表达，然后用一句话帮我理清混乱的逻辑。你教会我：真正的准备，不是为了讨好面试官，而是为了更清楚地看见自己是谁，任何时候都要自信，坚定，甚至是语气的调整，你给我了很多具体的建议。每次和你沟通完，我都觉得脑子更清楚了一点，心也更安定了一些。你不会用空洞的鼓励让我“加油”，你会帮我拆解问题，让我知道该怎么做、从哪一步开始，真正的解决心里的焦虑，更加从容自信。我知道你非常注重细节，也非常敏锐地捕捉到我每一个“自我否定”的迹象，然后用很优雅但坚定的方式引导我看见：“你已经很好了，你需要调整你的表达方式。你可以换一个说法。”谢谢你，Glody。你不是在陪我准备一场面试，而是在帮我成长为一个更坚定、更有力量的自己。未来的日子很长，我希望我们还有很多机会共同成长。"
+      },
+      {
+        "name": "Francis Chung",
+        "award": "最博爱社群推动者奖",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQHhCMZ_W5U-Hw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1707010951910?e=1754524800&v=beta&t=BS8X_2vTpdT7l5z-EnGd4ol1-ZFpwLiKpvlRlgc0z0Y",
+        "url": "https://www.linkedin.com/in/francischung/",
+        "description": "你是我人生中第一次参加 Meetup 活动的发起人。你主动邀请我参加networking，那次我忐忑不安地走进陌生的场地，不知道会遇见什么样的人。你不仅仅是组织者，更是一个无私的连接者。在我认识你之后，我才知道你私下里帮助了多少像我一样的毕业生，帮我们改简历，介绍机会，主动关心我们的状态。你就像一个社区的“点灯人”，默默点亮很多人前路上的那一点微光。通过你我认识了Ellis，帮我打开了技术交流的大门，也让我第一次真正体会到同行之间的温暖与信任。你没有高高在上地“指导”，而是像朋友一样陪伴，你经常给我开玩笑。我记得你说：“只要你愿意坚持，就已经赢过很多人了，你总会等到对的机会。”这句话一直刻在我心里。Francis，谢谢你用行动诠释了什么是“把善意扩散出去”。你一直跟我强调 networking 的重要性，你是一个真正热爱技术、也热爱人的人。你不只是帮了我，更是在用自己的方式温柔地改变着一个行业的气氛。"
+      },
+      {
+        "name": "Ellis Xue",
+        "award": "最佳并肩作战奖",
+        "src": "https://media.licdn.com/dms/image/v2/D4E35AQGGpV7y4qvtTA/profile-framedphoto-shrink_800_800/B4EZX1FwKvH0Ag-/0/1743573681059?e=1749715200&v=beta&t=9GvWMHANHAklyFTRaAfG04If3Rvk1yUl-MIeSLjRo8M",
+        "url": "https://www.linkedin.com/in/xiaobao-xue/",
+        "description": "Ellis，你是陪我经历最多面试过程的人，几乎每一场面试我都会和你分享，无论好坏，你都会认真听、认真反馈。我们互相模拟面试，一起讨论项目、讲技术方案、互相纠错、一起练习回答行为题。你不是为了“帮我”，你是像一个真正的队友一样，和我并肩作战。那种技术上的交流、情绪上的陪伴、节奏上的默契，是我极其幸运才遇到的东西。我印象特别深的一次，是我面试失败后特别沮丧，甚至怀疑自己，是你认真分析了我的表现，安慰我，告诉我问题并不在能力，而在表达上。你帮我一点点拆解、重构、重新练习，从那之后我面试状态越来越好。你是个特别踏实的人，代码写得很好，对自己要求高，也对朋友很真诚。我知道你还在找工作，但我非常非常相信你很快就会找到属于自己的舞台，也遇到那个真正懂你的人。Ellis，谢谢你，愿我们都早日并肩在职场相见。也希望你能遇到真正爱你的人，也希望你能更加自信。迎接更加美好的生活。"
+      },
+      {
+        "name": "Sarah Fischer Letts",
+        "award": "跨越时空的共情奖",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQG75VN-wgt6NQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721951108319?e=1754524800&v=beta&t=IW5HHy3L0orvhbRiQGKr818x4mMQKkWsCDO1ZPMD9S8",
+        "url": "https://www.linkedin.com/in/sarah-fischer-letts/",
+        "description": "Sarah，我们素未谋面，你却因为看到别人转发我的故事而主动留言。你分享了自己当年在香港求职的经历，那种不被看见、无助、甚至为了WIFi而去找陌生人借收据的故事，让我感动。你用你真实的故事告诉我：努力不一定马上有结果，但坚持从不会白费。那种从陌生人那里传来的共情，是非常稀缺的，它不是道理，而是穿透式的理解。更让我感动的是，你还把我推荐给你的朋友 Jules。虽然我因为走错楼迟到了一点点，但她并没有因此不耐烦，我和他们 CTO 好好聊了一次。这场面试对我来说，是非常宝贵的一次演练，也是让我开始真正放松、表达自己的开始。虽然最后他们公司当时没有合适的岗位，但那次经历让我不再害怕“面对陌生人”，也让我明白了：有些机会，不是结果带来的价值，而是过程本身的宁静和勇气。谢谢你，Sarah；谢谢你，Jules。你们的温暖和包容，让我不再畏惧开口表达自己。"
+      },
+      {
+        "name": "Tai Elliott",
+        "award": "勇气启动器奖",
+        "src": "https://media.licdn.com/dms/image/v2/C4D03AQHWleXc2zTgQw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516283946213?e=1754524800&v=beta&t=63pfiObRd6vcVwXocfkyxS8kMF2e8Gl8Vxg8mu69kHE",
+        "url": "https://www.linkedin.com/in/taielliott/",
+        "description": "我和很多人约了 coffee chat，但你是看到我的故事后，第一个主动联系我的人，还亲自开车来到我家附近的公园和我见面。那一天，其实我非常紧张。我已经来悉尼两年，却几乎没有说英语的朋友，不知道你会问什么，不知道自己能不能听懂，我头一天甚至都没怎么睡好。但你的态度太真诚了，一点也没有架子，我们像老朋友一样在公园走了几圈，边聊边散步。你问我做过的项目，问我如何介绍自己的项目，你没有否定我，而是不断启发我，用 airbnb 的例子告诉我，你怎么去介绍你和岗位的匹配度，你教我如何在讲项目时用“相似性”去建立经验感，如何让自己在对方眼中更专业。这些建议后来都用在了我的面试里，一点一点地帮我构建信心。谢谢你，Tai。你不是一个来“指导”我的人，而是一个愿意走进我的处境，用平视的方式让我觉得：“也许我真的可以。”你启动了我面对人群、面对世界的第一步。即使你是一个很内向的人，你也愿意为了帮我，开车主动来找我，这种真诚，让人难忘。"
+      },
+      {
+        "name": "Fabricio Leonardo Sodano Pascazi",
+        "award": "幕后导师奖",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQFle0FrVcdlsA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1728351819678?e=1754524800&v=beta&t=Hvonnh0sJAxtu9CvIXdZpFUGolm90C3L8zLcs3mU76A",
+        "url": "https://www.linkedin.com/in/fsodano/",
+        "description": "你是第一个听说我有面试，就主动说“我虽然不能给你工作机会，但我可以陪你 mock 一场”的人。那场模拟技术面试，我记忆犹新。你没有敷衍，而是像真正的面试官那样认真提问，从 live coding 到各种IT知识，到最后还特意列了一些学习资源发给我。你是愿意用具体行动支持我成长的人。这种无私，在我当时的求职旅程里显得特别珍贵。你用很基础的面试题，帮我建立起对技术面试的节奏感和信心，也让我在真实面试中更从容地应对突发情况。这让我真心觉得，“准备不是为了完美，而是为了少一点恐惧。”这句话，我一直带在心上。谢谢你，Fabricio。你在我还一无所有的时候选择支持我，那份信任和认真，是我职业起点上最坚实的垫脚石。"
+      },
+      {
+        "name": "Michael Jackson",
+        "award": "诚意推荐奖",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQG8ir8RpO3ivA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725092799682?e=1754524800&v=beta&t=HcsCj9KJHDBoIfy1py-RW6CqVpMiBFtfPgN1xbnm_o4",
+        "url": "https://www.linkedin.com/in/michaeljackson1611/",
+        "description": "Michael，谢谢你。谢谢你愿意在 LinkedIn 上分享我的故事，也愿意用自己的网络资源为我争取哪怕一丁点的机会。你不仅帮我转发、写推荐语，还和我合照，公开站在我身边，说：“他值得一个机会。”这种事情，说来简单，但在现实中很少有人会真的这么做。你不仅仅是在帮我找工作，你是在帮我建立信任感。当一个行业前辈为你担保，那种力量是巨大的。你后来还时不时发消息告诉我，你在关注我，有看新机也会想到我。你也许没有意识到，但对当时的我来说，你的举动，不只是一次帮助，更是一种默默的信任表达。Michael，我打心底感激你。我也真心希望你未来顺利，事业有成，也继续带着这份温柔与勇气去影响更多人。你是我旅途中的幸运之一。"
+      },
+      {
+        "name": "Ibrahim Motani",
+        "award": "温柔同行奖",
+        "src": "https://media.licdn.com/dms/image/v2/D4D03AQEr-9tabCTx2A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1686146429489?e=1754524800&v=beta&t=JaKrZm_q8FZ_Q5uqtJ-ROT5fglek7_ZTr1kw9GG9JH4",
+        "url": "https://www.linkedin.com/in/ibrahim-m-177565160/",
+        "description": "Ibrahim，谢谢你。谢谢你愿意在我行业经验不算丰富的时候，向你们公司真诚热烈地推荐我。从初试到终面，我一直记得你全程的跟进与支持，还有鼓励我。你不是把我“交出去”就结束了，而是持续为我提供反馈、让 HR 给我面试内容，让我在整个过程中不再那么焦虑。我记得我去你们公司面试的时候，你一直对我微笑，为我开门，你像一个温柔的引路人，在我人生的一个转角处，给我留下了深刻的力量。虽然最终我没能通过终面，虽然我们的职业路径暂时没有交汇成功，但这一次面试，是我至今经历中最有尊重感、最具建设性的一次。无论是 HR、面试官，都让我觉得：“原来求职这件事，也可以被这么温柔地对待。”你说：“你一切都会很好。”这句话我一直记得。谢谢你帮我走过那段阶段，也让我知道，我有进步的空间，它可以是更好的开始。即使我最后没有入职，但是你仍然邀请我喝咖啡，并感谢我的时间，这份真诚，是让人感动的。我相信我们还会再见的，在某个更成熟、更自信的时间点上，我们一定会再相逢。"
+      },
+      {
+        "name": "Ishan Shah",
+        "award": "同行战友奖",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQEwAej4qkgd4g/profile-displayphoto-shrink_400_400/B56ZRpgkkKGQAg-/0/1736936934041?e=1754524800&v=beta&t=4N1m5Bhws-S24pQU2ROzbDqq2WLb6QPi7Q7SLS4MWMM",
+        "url": "https://www.linkedin.com/in/ishu3101/",
+        "description": "Ishan，我们认识时，你也在找工作，我们彼此都处在“等面试”、“看拒信”、“不确定方向”的阶段。我们没有太多华丽的技巧分享，也没有高高在上的建议，但我们说的每一句话都很真实。你在新西兰，却经常主动联系我，给我打电话，和我分享你的近况，给我分享各种资料和信息，也安慰我“现在还没有 offer 没关系，我们一起加油”。每次我想要放弃的时候，都会想起你也还在坚持着。你让我明白：并不是只有“成功的人”才有资格分享经验，正在路上的人，也能给彼此最大的力量。我们聊面试、聊networking 的重要性、也聊财务压力……你从来不装作“我都很好”，我们可以坦率地说“我今天真的很累，我真的很难”。这种朋友，是我在这个阶段最珍贵的资源。Ishan，谢谢你和我一起走在这段没有地图的路上。谢谢你没有比我快跑太多，也没有停下来等太久，而是刚刚好地陪我并肩走了一段不容易的路。希望你也快快拿到你真正喜欢的 offer，开启属于你自己的光亮旅程。"
+      },
+      {
+        "name": "Wan Teja",
+        "award": "真诚同行奖",
+        "url": "https://www.linkedin.com/in/wan-t-5302871ba/",
+        "description": "谢谢你和Ahmad Nafis，谢谢你们在自己也处在人生过渡阶段的时候，仍然选择为我发声。你们本可以专注于自己的工作、项目、freelance 任务，却愿意抽出时间，把我的故事转发给你们的网络，甚至写下真诚的推荐语。我知道你们也并不轻松，有的正在打好几份工，有的在承接零碎项目，但你们却没有吝啬自己的影响力。你们不是为了“表现出好心”，而是真的发自内心希望我能早点有一份工作，早点不用那么辛苦。你们的帮助让我特别感动，也让我重新理解了什么是「同路人」。不是每个人都走在成功的终点，但有些人，即便还在奔跑，也愿意伸手拉你一把。谢谢你们。你们的真诚不是那种表面话语，而是一种能量，一种让我觉得“这世界还是有人在默默守望彼此”的能量。我会把这份感激藏在心里，希望将来有机会，我也能做你们曾经做过的事，传递下去。"
+      },
+      {
+        "name": "Ahmad Nafis",
+        "award": "真诚同行奖",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQELR6WbbqrXSQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1723358104474?e=1754524800&v=beta&t=3ItbnVkx4IVP7b2n2FXqXPqA8See3GM-V-mGb3mTTLs",
+        "url": "https://www.linkedin.com/in/ahmad-nafis/",
+        "description": "谢谢你和Wan Teja，谢谢你们在自己也处在人生过渡阶段的时候，仍然选择为我发声。你们本可以专注于自己的工作、项目、freelance 任务，却愿意抽出时间，把我的故事转发给你们的网络，甚至写下真诚的推荐语。我知道你们也并不轻松，有的正在打好几份工，有的在承接零碎项目，但你们却没有吝啬自己的影响力。你们不是为了“表现出好心”，而是真的发自内心希望我能早点有一份工作，早点不用那么辛苦。你们的帮助让我特别感动，也让我重新理解了什么是「同路人」。不是每个人都走在成功的终点，但有些人，即便还在奔跑，也愿意伸手拉你一把。谢谢你们。你们的真诚不是那种表面话语，而是一种能量，一种让我觉得“这世界还是有人在默默守望彼此”的能量。我会把这份感激藏在心里，希望将来有机会，我也能做你们曾经做过的事，传递下去。"
+      },
+      {
+        "name": "Sanmathi Kumar",
+        "award": "信任的力量奖",
+        "src": "https://media.licdn.com/dms/image/v2/C5603AQEUVEBP_R5XDg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1622189145211?e=1754524800&v=beta&t=aC3U6U3DjGZWh_5hL1buzx-uadBPO7hkjwtK4DkZZqY",
+        "url": "https://www.linkedin.com/in/sanmathikumar/",
+        "description": "Sanmathi，感谢你真诚把我推荐给你所在的公司，在第一次见面的时候，你热情地向我介绍公司产品，让我觉得自己被真诚欢迎。你没有敷衍、也没有“流程化”，你认真的态度让我觉得：我不是来填空缺的，我是被需要的。"
+      },
+      {
+        "name": "Ravi Vyas",
+        "award": "信任的力量奖",
+        "src": "https://media.licdn.com/dms/image/v2/C5603AQHVMJbHKV1sXg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1659745040938?e=1754524800&v=beta&t=lRvX5KaCP92CLxLrWFiev774wGhgTSujOxOYws8Hfew",
+        "url": "https://www.linkedin.com/in/ravi-vyas-a6b30b1a/",
+        "description": "Ravi，你不仅仅是我的领导，更像是一位在我人生转折点出现的支持者。从你帮我找房子、关心我的生活细节，到你告诉我“有任何事都可以跟我说，不满意也可以提，你不会 micromanage”，我知道我遇见的是一位真正值得尊敬的 leader。你给予的是一种信任感，而不是管控感。"
+      },
+
+      {
+        "name": "Donald Hastie",
+        "award": "信任的力量奖",
+        "src": "https://media.licdn.com/dms/image/v2/C5103AQE4OsYTHfifbA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1582069623294?e=1754524800&v=beta&t=z3HiYmTXOWnitlh-8J5-iopMR9uax9969Z3_HS5DDGk",
+        "url": "https://www.linkedin.com/in/donald-hastie-68a678179/",
+        "description": "Donald，当你准备向我发出 offer 的时候，你问我薪资期望。我说：“其实我不太在意。”你当时停顿了一下，然后很真诚地说了一句：“我想以尊重的方式对待你。”我听到这句话的时候，心里真的非常感动。那不是一句客套话，那是一种来自团队文化的诚意表达。感谢你们选择我，给予我信任，让我成为 BlueSky 的一员。我会努力不辜负这份期待，也希望自己能在这里与大家共同成长、彼此成就。你们的决定，不只改变了我现在的职业轨迹，更重建了我对“职场可以有温度”的信心。时间会证明，你们今天的信任，是非常明智的选择。"
+      }
+    ],
+    "finalMessage": "还有许多我想感谢的人： 很多人，或许文章没有提到你们，我们打过电话，或者见过面。我没有把你写在文章里，并不是你们不重要，你们对我的帮助我同样记在心里了。\n\n你们在线下向我微笑，你们私信鼓励我一定要坚持，你们帮忙转发，你们在评论区鼓励我。所有的所有，我都记得。 我非常感谢你们每一个帮助过我的，尝试帮助我的人，我希望你们这份善良，可以换来永远的健康，永远的快乐，永远的被爱，永远顺利。❤️ \n\n最后我想说： 这世上没有谁应该无条件地帮助另一个人，但你们真的做到了。你们在我最脆弱、最孤独、最容易放弃的时候，给了我看见自己的理由。我会把这些恩情永远记在心里，也希望在未来的某一天，我能成为别人的那道光。我会把这份爱和光传递下去，努力帮助跟我一样境遇的人。 \n\n所有的感谢，说到底是一句话：谢谢你们让我没有放弃。 我不是一个特别优秀的人，只是一个不愿放弃梦想的普通人。 希望我今天的故事，也能成为你坚持下去的理由。",
+    "signature": "亲爱的陌生人，请记得：无论你走多远，都别忘了相信自己，爱自己。所有的远方，终会抵达。山再高，路再远，我们终会在光里重逢。愿你走过万水千山，依然眼里有光，心中有爱。"
+  },
+  "en": {
+    "title": "I Finally Got my Offer!!",
+    "subtitle": "Grateful for You: Our brief encounters, your encouragement, and kindness made me walk more steadily and gently.",
+    "intro": "Hello everyone, I'm Scott.\n\nAs of May 27th, 634,120 people have read my job-seeking story.\n\nI applied to 723 jobs over 269 days, had 31 phone screens, endured countless mock interviews, 14 official interviews, 5 technical interviews, and finally received 3 offers. I've now secured a full-time offer. Only I truly know how difficult this journey has been.\n\nAfter graduating, I balanced job applications with various odd jobs to support myself: part-time IT work, food delivery, dishwashing, waiting tables... My parents constantly urged me to return home, saying the language was familiar, the culture aligned, and there were more opportunities. But I chose to stay in Australia. I love the blend of city and nature here, and I yearn for the \"work-life balance\" rhythm.\n\nBut reality was harsh. Finding a company that truly \"appreciates you\" was incredibly hard.\n\nThe Job Descriptions (JDs) only made me more confused. One role seemed to be recruiting an entire IT department. Every time I saw a JD, I'd doubt myself: \"Is this really something one person can do?\" To avoid being eliminated, I had to keep learning, keep piling on skills, and \"fight tooth and nail\" on my resume. Even then, interview opportunities were scarce.\n\nOn nights at the library, I'd hide on the rooftop, secretly crying; on the street, I held up a \"HIRE ME\" sign. I wore a suit, looking proud and brave, but only I knew how desolate I felt inside.I'm very glad that I didn't give up.",
+    "thanksTitle": "Thank You All",
+    "people": [
+      {
+        "name": "Alice Almeida",
+        "award": "The First Gentle Encounter Award",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQFPJHGZSZDG-g/profile-displayphoto-shrink_400_400/B56ZZgpYCjGcAg-/0/1745378182154?e=1754524800&v=beta&t=SCVH1QU-NeBOgdM-FZFssgFbAzbglmum2MUBk9PEdwE",
+        "url": "https://www.linkedin.com/in/alicemdonaldson/",
+        "description": "As you said, we didn't know each other, yet you were the first on LinkedIn to promote me. That day, I first took to the streets with my sign. You paused, not out of curiosity, but out of genuine kindness, and without hesitation, you shared my story on LinkedIn. You saw me and chose to let more people see me. When no one believed in me, when I felt shame and vulnerability, you made me feel worthy of respect. Later, you continued to encourage me. Though we only met once, you were like a distant light, guiding me before I'd even emerged from the darkness. You had no obligation to do any of this, yet you did. That bravery, sincerity, and kindness are a rare gift in my life. Thank you, Alice. You were the first warmth I received from a stranger, and it shone brightest when I needed it most."
+      },
+      {
+        "name": "Yifan Ai",
+        "award": "The Silent Amplifier of Light Award",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQHwowO-f0Y7Tg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1673760812463?e=1754524800&v=beta&t=GwmFlqtWvhGMyfBjkUR7aYCaq_RyalrsKbaCaqmfywE",
+        "url": "https://www.linkedin.com/in/yifanai/",
+        "description": "You didn't say much to me, but you quietly helped promote me. You were the second person to share my story on LinkedIn and Xiaohongshu, and the impact you had was immense – over 500,000 views and hundreds of comments on a single platform, making my previously silent voice heard by countless people. But more important than the numbers was the trust. You never asked me to prove anything, nor did you question if my writing was \"good enough.\" You simply helped amplify a tiny spark into a fire that illuminated an entire community. I remember you also told me: \"Don't be discouraged, keep working hard, someone will see you eventually.\" During those weeks of applying to dozens of jobs with no response, I re-read that sentence countless times. Some people help with words; you helped with actions. Yifan, thank you. If my journey was a long marathon, you were the one at a refreshment station, quietly handing me water, saying nothing, but enabling me to keep running. I'm so happy to hear about your recent promotion; I'm thrilled for you and wish you all the best in the future."
+      },
+      {
+        "name": "Alozio Ferreira",
+        "award": "The Emotional Support Guardian Award",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQFX-9TEpyRGMw/profile-displayphoto-shrink_400_400/B56ZXpNHSWGsAg-/0/1743374284625?e=1754524800&v=beta&t=x3gMcqbxuso1JqBiD8uNprG5wQr0vKWhOEwQYbCS0D4",
+        "url": "https://www.linkedin.com/in/aloizio-ferreira-compart-6a7909202/",
+        "description": "Aloe, after we met, you chatted with me almost every day. From the first time I told you \"I don't know what to do,\" you never left me to face it alone. You were the one who proactively messaged me before interviews, comforted me with \"it's not your fault\" when I failed, and firmly told me \"you've done really well\" when I doubted myself. You even offered to pay for my business cards, and though I didn't print them, I'll never forget you saying: \"You deserve a chance to be remembered.\" Every mock interview, every voice practice, every casual chat about life after discussing technical topics, even encouraging me to attend events to meet more people, were all part of my gradual journey to rebuild confidence. You told me to have self-respect, to love myself, and not to easily say \"sorry\" to appease others. Even when we scheduled time to prepare for my interviews, you told me not to completely adjust to others' schedules. You told me to love myself, and we hadn't even met, but I was truly touched. These words sound simple, but at the time, I genuinely couldn't be calm or confident. You slowly pulled me back from \"feeling inadequate,\" helping me start to believe: \"Maybe I can be good too.\" I always remember you sharing your own job-seeking experiences after graduation. That empathy wasn't just understanding; it was a true sense of companionship. Thank you, Aloe. When I was most alone, you made me feel like I wasn't. In the future, I hope that when you need me, I can offer you support and companionship."
+      },
+      {
+        "name": "Glody Santiago",
+        "award": "The Inner Awakening Award",
+        "src": "https://media.licdn.com/dms/image/v2/C5103AQEZ4JC3tba6QA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1566998037779?e=1754524800&v=beta&t=kEGb1hQxMJI-q3fZRW3rUx59V9HvkBmkNkP-b9p7IwY",
+        "url": "https://www.linkedin.com/in/glodys/",
+        "description": "From our first conversation, I knew you were more than just an interview coach; you were like a long-lost friend. You weren't someone who gave me \"answers,\" but rather someone who continuously guided me to think: Who do I want to be? What are my true strengths? Where does my anxiety come from? What's my problem? Your approach was profound and gentle. You didn't just polish my resume or project descriptions, but rather an inner way of thinking. You listened carefully to what I said, then clarified my confused logic with a single sentence. You taught me that true preparation isn't about pleasing the interviewer, but about clearly seeing who you are. You emphasized confidence and conviction at all times, even adjusting my tone. You gave me many specific suggestions. After every conversation with you, my mind felt clearer, and my heart felt calmer. You wouldn't just give empty \"keep going\" encouragement; you'd help me break down problems, showing me how to do things, where to start, truly alleviating my anxiety, and making me more composed and confident. I know you pay great attention to detail and keenly observed every sign of my \"self-doubt,\" then gracefully but firmly guided me to see: \"You are already good enough; you just need to adjust your expression. You can rephrase it.\" Thank you, Glody. You weren't just helping me prepare for an interview; you were helping me grow into a stronger, more confident self. The future is long, and I hope we'll have many more opportunities to grow together."
+      },
+      {
+        "name": "Francis Chung",
+        "award": "The Most Altruistic Community Builder Award",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQHhCMZ_W5U-Hw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1707010951910?e=1754524800&v=beta&t=BS8X_2vTpdT7l5z-EnGd4ol1-ZFpwLiKpvlRlgc0z0Y",
+        "url": "https://www.linkedin.com/in/francischung/",
+        "description": "You were the organizer of the first Meetup event I ever attended. You proactively invited me to networking, and I walked into the unfamiliar venue with apprehension, unsure of whom I'd meet. You were more than just an organizer; you were a selfless connector. After meeting you, I learned how many graduates like me you had privately helped, revising resumes, introducing opportunities, and actively caring about our well-being. You were like a \"lamp lighter\" in the community, quietly illuminating the path for many. Through you, I met Ellis, which opened the door to technical exchanges for me and made me truly experience the warmth and trust among peers for the first time. You didn't \"guide\" from an ivory tower; you accompanied me like a friend, often joking with me. I remember you saying, \"As long as you're willing to persevere, you've already surpassed many people, and you'll always wait for the right opportunity.\" That sentence has stayed etched in my heart. Francis, thank you for showing what it means to \"spread kindness\" through your actions. You constantly emphasized the importance of networking. You are someone who truly loves technology and loves people. You didn't just help me; you are gently changing the atmosphere of an entire industry in your own way."
+      },
+      {
+        "name": "Ellis Xue",
+        "award": "The Best Teammate Award",
+        "src": "https://media.licdn.com/dms/image/v2/D4E35AQGGpV7y4qvtTA/profile-framedphoto-shrink_800_800/B4EZX1FwKvH0Ag-/0/1743573681059?e=1749715200&v=beta&t=9GvWMHANHAklyFTRaAfG04If3Rvk1yUl-MIeSLjRo8M",
+        "url": "https://www.linkedin.com/in/xiaobao-xue/",
+        "description": "Ellis, you were the one who accompanied me through the most interview processes. I shared almost every interview with you, good or bad, and you listened carefully and gave thoughtful feedback. We mock-interviewed each other, discussed projects, explained technical solutions, corrected each other, and practiced behavioral questions together. You weren't just \"helping me\"; you were like a true teammate, fighting alongside me. That kind of technical exchange, emotional companionship, and synchronized rhythm are incredibly fortunate things to encounter. I particularly remember one time when I was very frustrated after a failed interview, even doubting myself. You carefully analyzed my performance, comforted me, and told me the problem wasn't in my ability, but in my expression. You helped me break down, reconstruct, and re-practice step by step. From then on, my interview performance improved significantly. You are a very down-to-earth person, you write excellent code, you set high standards for yourself, and you are very sincere with your friends. I know you're still looking for a job, but I truly believe you'll soon find your stage and meet someone who truly understands you. Ellis, thank you. May we both soon work side by side in the workplace. I also hope you find someone who truly loves you, and that you become even more confident. Embrace a better life."
+      },
+      {
+        "name": "Sarah Fischer Letts",
+        "award": "The Transcendent Empathy Award",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQG75VN-wgt6NQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721951108319?e=1754524800&v=beta&t=IW5HHy3L0orvhbRiQGKr818x4mMQKkWsCDO1ZPMD9S8",
+        "url": "https://www.linkedin.com/in/sarah-fischer-letts/",
+        "description": "Sarah, we've never met, yet you proactively left a comment after seeing someone else share my story. You shared your own job-seeking experience in Hong Kong, the feeling of being unseen, helpless, and even borrowing receipts from strangers for Wi-Fi, which moved me. You used your real story to tell me: effort doesn't always bring immediate results, but persistence always pays off. That kind of empathy from a stranger is incredibly rare; it's not a principle, but a penetrating understanding. What touched me even more was that you recommended me to your friend, Jules. Although I was a little late because I went to the wrong building, she wasn't impatient, and I had a good chat with their CTO. This interview was an invaluable rehearsal for me, and it was also when I truly began to relax and express myself. Although their company didn't have a suitable position at the time, that experience made me no longer afraid to \"face strangers,\" and it made me realize: some opportunities aren't about the value of the outcome, but about the serenity and courage of the process itself. Thank you, Sarah; thank you, Jules. Your warmth and inclusivity made me no longer fear speaking my mind."
+      },
+      {
+        "name": "Tai Elliott",
+        "award": "The Courage Catalyst Award",
+        "src": "https://media.licdn.com/dms/image/v2/C4D03AQHWleXc2zTgQw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516283946213?e=1754524800&v=beta&t=63pfiObRd6vcVwXocfkyxS8kMF2e8Gl8Vxg8mu69kHE",
+        "url": "https://www.linkedin.com/in/taielliott/",
+        "description": "I arranged coffee chats with many people, but you were the first person to proactively contact me after seeing my story, even driving to a park near my home to meet. That day, I was incredibly nervous. I had been in Sydney for two years, yet I had almost no English-speaking friends. I didn't know what you would ask, or if I would understand. I barely slept the night before. But your attitude was so sincere, completely unpretentious. We walked a few laps around the park like old friends, chatting as we strolled. You asked me about projects I had done, how to introduce them. You didn't negate me; instead, you constantly inspired me, using the example of Airbnb to show me how to present your fit with a role, how to use \"similarity\" when talking about projects to build a sense of experience, and how to appear more professional in the eyes of the other person. These suggestions were later used in my interviews, gradually helping me build confidence. Thank you, Tai. You weren't there to \"instruct\" me, but rather someone willing to step into my shoes and, with an equal perspective, make me feel: \"Maybe I really can do this.\" You initiated my first step towards facing people and facing the world. Even though you're a very introverted person, you were willing to drive to meet me to help me. That sincerity is unforgettable."
+      },
+      {
+        "name": "Fabricio Leonardo Sodano Pascazi",
+        "award": "The Behind-the-Scenes Mentor Award",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQFle0FrVcdlsA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1728351819678?e=1754524800&v=beta&t=Hvonnh0sJAxtu9CvIXdZpFUGolm90C3L8zLcs3mU76A",
+        "url": "https://www.linkedin.com/in/fsodano/",
+        "description": "You were the first person who, upon hearing I had an interview, proactively said, \"Though I can't give you a job, I can do a mock interview with you.\" That mock technical interview is etched in my memory. You weren't perfunctory; you asked serious questions like a real interviewer, from live coding to various IT knowledge points, and even sent me a list of learning resources afterwards. You are someone willing to support my growth with concrete actions. This selflessness was especially precious during my job search journey. You used basic interview questions to help me build a sense of rhythm and confidence for technical interviews, and it also helped me handle unexpected situations more calmly in real interviews. This made me truly feel, \"Preparation isn't about perfection, but about having less fear.\" I've carried that phrase with me ever since. Thank you, Fabricio. You chose to support me when I had nothing, and that trust and dedication are the most solid stepping stone at the beginning of my career."
+      },
+      {
+        "name": "Michael Jackson",
+        "award": "The Sincere Recommender Award",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQG8ir8RpO3ivA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725092799682?e=1754524800&v=beta&t=HcsCj9KJHDBoIfy1py-RW6CqVpMiBFtfPgN1xbnm_o4",
+        "url": "https://www.linkedin.com/in/michaeljackson1611/",
+        "description": "Michael, thank you. Thank you for being willing to share my story on LinkedIn and for leveraging your network to give me even a sliver of an opportunity. You not only shared my post and wrote a recommendation, but you also took a photo with me, publicly standing by my side and saying, \"He deserves a chance.\" This may sound simple, but in reality, very few people would genuinely do it. You weren't just helping me find a job; you were helping me build trust. When an industry veteran vouches for you, that power is immense. You later messaged me periodically, telling me you were following my progress and thinking of me when new opportunities arose. You may not have realized it, but for me at that time, your actions were more than just help; they were a quiet expression of trust. Michael, I am deeply grateful to you. I also sincerely hope you have a smooth and successful future career, and that you continue to influence more people with your gentleness and courage. You were one of my lucky breaks on this journey."
+      },
+      {
+        "name": "Ibrahim Motani",
+        "award": "The Gentle Companion Award",
+        "src": "https://media.licdn.com/dms/image/v2/D4D03AQEr-9tabCTx2A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1686146429489?e=1754524800&v=beta&t=JaKrZm_q8FZ_Q5uqtJ-ROT5fglek7_ZTr1kw9GG9JH4",
+        "url": "https://www.linkedin.com/in/ibrahim-m-177565160/",
+        "description": "Ibrahim, thank you. Thank you for genuinely and enthusiastically recommending me to your company, even when my industry experience wasn't extensive. From the initial interview to the final one, I remember your continuous follow-up, support, and encouragement. You didn't just \"hand me off\" and disappear; you kept providing feedback and ensured HR gave me interview content, which significantly reduced my anxiety throughout the process. I remember when I went to your company for the interview, you kept smiling at me and opened the door for me. You were like a gentle guide, leaving a profound impression on me at a turning point in my life. Although I ultimately didn't pass the final interview, it was the most respectful and constructive interview experience I've had to date. Both the HR and the interviewers made me feel: \"So, job searching can be treated with such kindness.\" You said, \"Everything will be alright.\" I've always remembered that. Thank you for helping me through that phase and for showing me that I have room for improvement, and that it can be a better beginning. Even though I didn't join your company, you still invited me for coffee and thanked me for my time; that sincerity is truly touching. I believe we will meet again, at a more mature and confident point in time; we will certainly reunite."
+      },
+      {
+        "name": "Ishan Shah",
+        "award": "The Fellow Comrade Award",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQEwAej4qkgd4g/profile-displayphoto-shrink_400_400/B56ZRpgkkKGQAg-/0/1736936934041?e=1754524800&v=beta&t=4N1m5Bhws-S24pQU2ROzbDqq2WLb6QPi7Q7SLS4MWMM",
+        "url": "https://www.linkedin.com/in/ishu3101/",
+        "description": "Ishan, when we met, you were also looking for a job. We were both in the \"waiting for interviews,\" \"seeing rejections,\" and \"uncertain about direction\" phases. We didn't share many fancy tips or high-level advice, but every word we spoke was real. You were in New Zealand, yet you often proactively contacted me, called me, shared your updates, provided various resources and information, and comforted me by saying, \"It's okay not to have an offer yet, let's keep cheering each other on.\" Every time I wanted to give up, I'd remember that you were still persisting. You made me realize: it's not just \"successful people\" who are qualified to share experiences; those still on the journey can also give each other the greatest strength. We talked about interviews, the importance of networking, and even financial pressure... You never pretended to be \"doing great\"; we could honestly say, \"I'm really tired today, I'm really hard.\" This kind of friend is my most precious resource at this stage. Ishan, thank you for walking this uncharted path with me. Thank you for not running too far ahead of me, nor stopping for too long, but perfectly accompanying me through a difficult stretch. I hope you also quickly get the offer you truly desire and embark on your own bright journey."
+      },
+      {
+        "name": "Wan Teja",
+        "award": "The Sincere Companion Award",
+        "url": "https://www.linkedin.com/in/wan-t-5302871ba/",
+        "description": "Thank you, and Ahmad Nafis. Thank you for choosing to speak up for me even when you were in a transitional phase yourselves. You could have focused on your own work, projects, and freelance tasks, yet you were willing to take the time to forward my story to your networks and even write sincere recommendations. I know you weren't having an easy time either, some juggling multiple jobs, others taking on scattered projects, but you didn't hold back your influence. You weren't \"showing kindness\"; you genuinely wished for me to find a job sooner, to not struggle as much. Your help deeply touched me and made me re-understand what \"fellow travelers\" truly means. Not everyone reaches the finish line of success, but some people, even while still running, are willing to extend a hand to pull you up. Thank you both. Your sincerity wasn't just superficial words, but an energy, an energy that made me feel \"there are still people quietly watching out for each other in this world.\" I will keep this gratitude in my heart, and I hope that someday, I can do what you once did and pass it on."
+      },
+      {
+        "name": "Ahmad Nafis",
+        "award": "The Sincere Companion Award",
+        "src": "https://media.licdn.com/dms/image/v2/D5603AQELR6WbbqrXSQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1723358104474?e=1754524800&v=beta&t=3ItbnVkx4IVP7b2n2FXqXPqA8See3GM-V-mGb3mTTLs",
+        "url": "https://www.linkedin.com/in/ahmad-nafis/",
+        "description": "Thank you, and Wan Teja. Thank you for choosing to speak up for me even when you were in a transitional phase yourselves. You could have focused on your own work, projects, and freelance tasks, yet you were willing to take the time to forward my story to your networks and even write sincere recommendations. I know you weren't having an easy time either, some juggling multiple jobs, others taking on scattered projects, but you didn't hold back your influence. You weren't \"showing kindness\"; you genuinely wished for me to find a job sooner, to not struggle as much. Your help deeply touched me and made me re-understand what \"fellow travelers\" truly means. Not everyone reaches the finish line of success, but some people, even while still running, are willing to extend a hand to pull you up. Thank you both. Your sincerity wasn't just superficial words, but an energy, an energy that made me feel \"there are still people quietly watching out for each other in this world.\" I will keep this gratitude in my heart, and I hope that someday, I can do what you once did and pass it on."
+      },
+      {
+        "name": "Sanmathi Kumar",
+        "award": "The Power of Trust Award",
+        "src": "https://media.licdn.com/dms/image/v2/C5603AQEUVEBP_R5XDg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1622189145211?e=1754524800&v=beta&t=aC3U6U3DjGZWh_5hL1buzx-uadBPO7hkjwtK4DkZZqY",
+        "url": "https://www.linkedin.com/in/sanmathikumar/",
+        "description": "Sanmathi, thank you for genuinely recommending me to your company. During our first meeting, you enthusiastically introduced me to the company's products, making me feel genuinely welcomed. You weren't perfunctory or \"process-driven\"; your serious attitude made me feel: I'm not here to fill a vacancy, I'm needed."
+      },
+      {
+        "name": "Ravi Vyas",
+        "award": "The Power of Trust Award",
+        "src": "https://media.licdn.com/dms/image/v2/C5603AQHVMJbHKV1sXg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1659745040938?e=1754524800&v=beta&t=lRvX5KaCP92CLxLrWFiev774wGhgTSujOxOYws8Hfew",
+        "url": "https://www.linkedin.com/in/ravi-vyas-a6b30b1a/",
+        "description": "Ravi, you are not just my leader, but more like a supporter who appeared at a turning point in my life. From helping me find a place to live and caring about the details of my life, to telling me, \"You can tell me anything, even if you're not satisfied, and I won't micromanage,\" I knew I had met a truly respectable leader. You gave me a sense of trust, not control."
+      },
+      {
+        "name": "Donald Hastie",
+        "award": "The Power of Trust Award",
+        "src": "https://media.licdn.com/dms/image/v2/C5103AQE4OsYTHfifbA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1582069623294?e=1754524800&v=beta&t=z3HiYmTXOWnitlh-8J5-iopMR9uax9969Z3_HS5DDGk",
+        "url": "https://www.linkedin.com/in/donald-hastie-68a678179/",
+        "description": "Donald, when you were preparing to extend an offer to me, you asked about my salary expectations. I said, \"Actually, I don't really care.\" You paused for a moment, then genuinely said, \"I want to treat you with respect.\" I heard that, and my heart was truly touched. It wasn't just a polite phrase; it was a sincere expression from the team's culture. Thank you for choosing me, for giving me your trust, and for making me a part of BlueSky. I will strive to live up to this expectation, and I hope to grow together and achieve mutual success here with everyone. Your decision not only changed my current career trajectory but also rebuilt my confidence that \"the workplace can have warmth.\" Time will show that your trust today was a very wise choice."
+      }
+    ],
+    "finalMessage": "There are many others I wish to thank. Many of you may not have been mentioned in this article. We may have spoken on the phone or met in person. Not including you in this article doesn't mean you're not important; \n\nI remember your help just as much. You smiled at me offline, you messaged me to encourage me to persevere, you helped share my story, and you encouraged me in the comments section. All of it, I remember. I am incredibly grateful to each and every one of you who helped me, or tried to help me. I hope your kindness brings you eternal health, eternal happiness, eternal love, and eternal success. ❤️\n\nFinally, I want to say: In this world, no one is obliged to help another unconditionally, yet you truly did. You gave me a reason to see myself when I was at my most vulnerable, most lonely, and most likely to give up. I will forever keep this gratitude in my heart, and I hope that someday, I can become that light for others. I will pass on this love and light, striving to help those in similar situations as myself.\n\nAll this gratitude boils down to one sentence: Thank you for not letting me give up.\n\nI am not a particularly outstanding person, just an ordinary person unwilling to give up on a dream. I hope my story today can also be a reason for you to keep going.",
+    "signature": "Dear stranger, please remember: No matter how far you go, never forget to believe in yourself and love yourself. All distant destinations will eventually be reached. No matter how high the mountain, how long the road, we will eventually reunite in the light. May you journey across countless mountains and rivers, still with light in your eyes and love in your heart."
+  }
+}

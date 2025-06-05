@@ -35,9 +35,10 @@ export interface CardProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
 }
 
 const variantStyles = {
-  primary: 'bg-white border border-gray-200',
-  secondary: 'bg-white ',
-  tertiary: 'bg-gray-100',
+  primary:
+    'bg-white border border-gray-200 dark:bg-gray-700 dark:border-gray-700 dark:text-white',
+  secondary: 'bg-white dark:bg-gray-900 dark:text-white',
+  tertiary: 'bg-gray-100 dark:bg-gray-800 dark:text-white',
 };
 
 const sizeStyles = {

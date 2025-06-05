@@ -3,13 +3,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Digit } from './components/Digit';
 import { formatNumber } from './util/formatNumber';
 import { parseFormattedNumber } from './util/parseFormattedNumber';
+import { motion, useMotionValue, animate } from 'framer-motion';
 
 export type NumberFormat = 'none' | 'currency' | 'percentage' | 'decimal';
 
-export type NumberType =
-  | 'standard' // 标准数字格式
-  | 'scientific' // 科学计数法
-  | 'engineering'; // 工程计数法
+export type NumberType = 'standard' | 'scientific' | 'engineering';
 
 export type AnimationType = 'flip' | 'slide' | 'fade' | 'none';
 
@@ -25,7 +23,6 @@ interface AnimatedNumberProps {
   maxNumberPlaces?: number;
   delayPerChar?: number;
   currencyType?: string;
-  debounceTime?: number;
   useShortFormat?: boolean;
   numberType?: NumberType;
   currencySymbolSize?: string;
@@ -48,7 +45,6 @@ export const Number: React.FC<AnimatedNumberProps> = ({
   maxNumberPlaces = 0,
   delayPerChar = 0.05,
   currencyType = 'USD',
-  debounceTime = 50,
   useShortFormat = false,
   numberType = 'standard',
   currencySymbolSize,
@@ -59,60 +55,55 @@ export const Number: React.FC<AnimatedNumberProps> = ({
   commaWidth = '0.4em',
   ...props
 }) => {
-  const [formattedParts, setFormattedParts] = useState<{
-    currencySymbol: string;
-    integerPart: string;
-    decimalPart: string;
-    fullText: string;
-  }>({
+  const [formattedParts, setFormattedParts] = useState({
     currencySymbol: '',
     integerPart: '',
     decimalPart: '',
     fullText: '',
   });
-  const [prevFormattedParts, setPrevFormattedParts] = useState<{
-    currencySymbol: string;
-    integerPart: string;
-    decimalPart: string;
-    fullText: string;
-  }>({
+  const [prevFormattedParts, setPrevFormattedParts] = useState({
     currencySymbol: '',
     integerPart: '',
     decimalPart: '',
     fullText: '',
   });
-  const prevValueRef = useRef(0);
+  const [showDigits, setShowDigits] = useState(false);
 
-  const debounceTimer = useRef<NodeJS.Timeout | null>(null);
+  const animatedValue = useMotionValue(0);
 
   useEffect(() => {
     const numValue =
       typeof value === 'number' ? value : parseFloat(value.toString());
     if (isNaN(numValue)) return;
 
-    if (debounceTimer.current) {
-      clearTimeout(debounceTimer.current);
-    }
+    setShowDigits(false); // 重置动画状态
+    setPrevFormattedParts(formattedParts); // 保存上一次结果用于对比
 
-    debounceTimer.current = setTimeout(() => {
-      setPrevFormattedParts(formattedParts);
-      const formatted = formatNumber(
-        numValue,
-        format,
-        decimalPlaces,
-        locale,
-        currencyType,
-        useShortFormat,
-        numberType,
-        maxNumberPlaces,
-      );
-      const parsedParts = parseFormattedNumber(formatted, format, currencyType);
-      setFormattedParts({
-        ...parsedParts,
-        fullText: formatted,
-      });
-      prevValueRef.current = numValue;
-    }, debounceTime);
+    const controls = animate(animatedValue, numValue, {
+      duration: duration,
+      onUpdate: (latest) => {
+        const formatted = formatNumber(
+          latest,
+          format,
+          decimalPlaces,
+          locale,
+          currencyType,
+          useShortFormat,
+          numberType,
+          maxNumberPlaces,
+        );
+        const parsed = parseFormattedNumber(formatted, format, currencyType);
+        setFormattedParts({
+          ...parsed,
+          fullText: formatted,
+        });
+      },
+      onComplete: () => {
+        setShowDigits(true);
+      },
+    });
+
+    return () => controls.stop(); // 清理动画控制器
   }, [
     value,
     format,
@@ -121,6 +112,7 @@ export const Number: React.FC<AnimatedNumberProps> = ({
     useShortFormat,
     numberType,
     maxNumberPlaces,
+    duration,
   ]);
 
   const calculateDelay = (
@@ -166,63 +158,72 @@ export const Number: React.FC<AnimatedNumberProps> = ({
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: '0px 0px -100px 0px' }}
+      className={cn('inline-flex items-end', className)}
       {...props}
-      className={cn('inline-flex items-end ', className)}
     >
-      {prefix && (
-        <span
-          className='mr-1'
-          dangerouslySetInnerHTML={{ __html: prefix }}
-        />
-      )}
-
-      <div className='flex overflow-hidden items-baseline'>
-        {formattedParts.currencySymbol && (
-          <div
-            className='flex'
-            style={currencySymbolSize ? { fontSize: currencySymbolSize } : {}}
-          >
-            {renderPart(
-              formattedParts.currencySymbol,
-              prevFormattedParts.currencySymbol,
-              currencySymbolSize,
-            )}
-          </div>
-        )}
-
-        <div
-          className='flex'
-          style={integerPartSize ? { fontSize: integerPartSize } : {}}
-        >
-          {renderPart(
-            formattedParts.integerPart,
-            prevFormattedParts.integerPart,
-            integerPartSize,
+      {showDigits && (
+        <>
+          {prefix && (
+            <span
+              className='mr-1'
+              dangerouslySetInnerHTML={{ __html: prefix }}
+            />
           )}
-        </div>
 
-        {formattedParts.decimalPart && (
-          <div
-            className='flex'
-            style={decimalPartSize ? { fontSize: decimalPartSize } : {}}
-          >
-            {renderPart(
-              formattedParts.decimalPart,
-              prevFormattedParts.decimalPart,
-              decimalPartSize,
+          <div className='flex overflow-hidden items-baseline'>
+            {formattedParts.currencySymbol && (
+              <div
+                className='flex'
+                style={
+                  currencySymbolSize ? { fontSize: currencySymbolSize } : {}
+                }
+              >
+                {renderPart(
+                  formattedParts.currencySymbol,
+                  prevFormattedParts.currencySymbol,
+                  currencySymbolSize,
+                )}
+              </div>
+            )}
+
+            <div
+              className='flex'
+              style={integerPartSize ? { fontSize: integerPartSize } : {}}
+            >
+              {renderPart(
+                formattedParts.integerPart,
+                prevFormattedParts.integerPart,
+                integerPartSize,
+              )}
+            </div>
+
+            {formattedParts.decimalPart && (
+              <div
+                className='flex'
+                style={decimalPartSize ? { fontSize: decimalPartSize } : {}}
+              >
+                {renderPart(
+                  formattedParts.decimalPart,
+                  prevFormattedParts.decimalPart,
+                  decimalPartSize,
+                )}
+              </div>
             )}
           </div>
-        )}
-      </div>
 
-      {suffix && (
-        <span
-          className='ml-1'
-          style={suffixSize ? { fontSize: suffixSize } : {}}
-          dangerouslySetInnerHTML={{ __html: suffix }}
-        />
+          {suffix && (
+            <span
+              className='ml-1'
+              style={suffixSize ? { fontSize: suffixSize } : {}}
+              dangerouslySetInnerHTML={{ __html: suffix }}
+            />
+          )}
+        </>
       )}
-    </div>
+    </motion.div>
   );
 };
