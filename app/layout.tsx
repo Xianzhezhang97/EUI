@@ -18,6 +18,7 @@ export default function RootLayout({
     <html
       lang='en'
       suppressHydrationWarning
+      className='bg-gradient-to-br from-blue-900 to-indigo-900'
     >
       <body>
         <ThemeProvider

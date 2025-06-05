@@ -1,3 +1,4 @@
+import type { LucideIcon } from 'lucide-react';
 import {
   Clock,
   Users,
@@ -10,7 +11,13 @@ import {
   Share2,
 } from 'lucide-react';
 
-export const getStats = (language: 'zh' | 'en') =>
+interface Stat {
+  icon: LucideIcon;
+  number: string;
+  label: string;
+}
+
+export const getStats = (language: 'zh' | 'en'): Stat[] =>
   language === 'zh'
     ? [
         { icon: Users, number: '634120', label: '关注' },

@@ -1,17 +1,16 @@
 'use client';
 import { useState } from 'react';
-import { Card } from '@/stories/Components/Card/Card';
 import { Button } from '@/stories/Components/Button/Button';
 import { motion } from 'framer-motion';
-import { Moon, Sun, Heart, Trophy } from 'lucide-react';
+import { Moon, Sun, Heart, Trophy, Dock } from 'lucide-react';
 import { LinkedInAvatar } from './components/LinkedInAvatar';
 import { StatsCard } from './components/StatsCard';
 import { PersonCard } from './components/PersonCard';
 import { getStats } from './data/stats';
 import messages from './data/messages.json';
-import { Dock } from 'lucide-react';
 import type { ContentMessages } from './types';
 import Link from 'next/link';
+import { Number } from '@/stories/Components/Number/Number';
 
 export default function OfferAnnouncement() {
   const [darkMode, setDarkMode] = useState(false);
@@ -26,15 +25,15 @@ export default function OfferAnnouncement() {
 
   return (
     <div
-      className={`min-h-screen pt-24 transition-all duration-500 ${
+      className={`min-h-screen transition-all duration-500 ${
         darkMode
-          ? 'bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 text-white'
+          ? 'bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-900 text-white'
           : 'bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-zinc-900'
       }`}
     >
       {/* 控制按钮 */}
       <div
-        className='fixed top-0 left-0 h-16 p-3  flex justify-end
+        className='flex  p-3  flex justify-end
        w-full right-0 flex items-center gap-3 z-10'
       >
         <a
@@ -83,7 +82,7 @@ export default function OfferAnnouncement() {
         </Button>
       </div>
 
-      <div className='max-w-6xl mx-auto px-6 py-12'>
+      <div className='max-w-6xl pt-24  mx-auto px-6 py-12'>
         {/* 头部标题区域 */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
@@ -95,7 +94,7 @@ export default function OfferAnnouncement() {
             <LinkedInAvatar
               name='Scott Zhang'
               size='w-48 h-48'
-              url='https://www.linkedin.com/in/yifan-ai-0000000000/'
+              url='https://www.linkedin.com/in/scottcheung1110'
               src='https://img.picgo.net/2025/06/05/profile-copy46ff46bbb252fb3c.png'
             />
           </div>
