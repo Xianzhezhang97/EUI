@@ -10,60 +10,62 @@ import { WaterfallLayout } from './WaterfallLayout';
 // Generate some sample content
 const generateItems = (count: number) => {
   return Array.from({ length: count }).map((_, i) => {
-    const height = 100 + Math.floor(Math.random() * 200);
+    const height = 50 + Math.floor(Math.random() * 500);
     return (
-      <div
-        key={i}
-        className='space-y-4 w-full flex flex-col'
-      >
-        <ImagePro
-          src={`https://picsum.photos/500/${height}?random=${i}`}
-          alt={`User ${i}`}
-          withSkeleton
-          objectFit='contain'
-          rounded='lg'
-          height={height}
-        />
-        <motion.div className='space-y-4'>
-          <Skeleton
-            variant='text'
-            size='md'
-            className='w-3/4'
-            animationActive={false}
+      <div key={i}>
+        <motion.div
+          layout
+          transition={{ duration: 2 }}
+          className='space-y-4 w-full flex flex-col'
+        >
+          <ImagePro
+            src={`https://picsum.photos/500/${height}?random=${i}`}
+            alt={`User ${i}`}
+            withSkeleton
+            width='100%'
           />
-          <Skeleton
-            variant='text'
-            size='md'
-            className='w-1/2'
-            animationActive={false}
-          />
-          <Skeleton
-            variant='text'
-            size='md'
-            className='w-2/3'
-            animationActive={false}
-          />
-        </motion.div>
-        <div className='flex justify-between items-center'>
-          <div className='flex items-center gap-3 '>
-            <Avatar
-              src={`https://i.pravatar.cc/150?img=${i % 70}`}
-              alt={`User ${i}`}
-              customSize='20px'
-            />
-            <div>
-              <h3 className='text-xs'>Scott is legend {i + 1}</h3>
-            </div>
-          </div>
 
-          <Number
-            value={Math.floor(Math.random() * 10000)}
-            useShortFormat
-            maxNumberPlaces={3}
-            animation='slide'
-            className='flex items-center text-xs'
-          />
-        </div>
+          <motion.div className='space-y-4'>
+            <Skeleton
+              variant='text'
+              size='md'
+              className='w-3/4'
+              animationActive={false}
+            />
+            <Skeleton
+              variant='text'
+              size='md'
+              className='w-1/2'
+              animationActive={false}
+            />
+            <Skeleton
+              variant='text'
+              size='md'
+              className='w-2/3'
+              animationActive={false}
+            />
+          </motion.div>
+          <div className='flex justify-between items-center'>
+            <div className='flex items-center gap-3 '>
+              <Avatar
+                src={`https://i.pravatar.cc/150?img=${i % 70}`}
+                alt={`User ${i}`}
+                customSize='20px'
+              />
+              <div>
+                <h3 className='text-xs'>Scott is legend {i + 1}</h3>
+              </div>
+            </div>
+
+            <Number
+              value={Math.floor(Math.random() * 10000)}
+              useShortFormat
+              maxNumberPlaces={3}
+              animation='slide'
+              className='flex items-center text-xs'
+            />
+          </div>
+        </motion.div>
       </div>
     );
   });
@@ -115,7 +117,7 @@ export const SocialCard: Story = {
   args: {
     minColumnWidth: { sm: 250, md: 250, lg: 250, xl: 250 },
     children: Array.from({ length: 50 }).map((_, i) => {
-      const height = 100 + Math.floor(Math.random() * 200);
+      const height = 50 + Math.floor(Math.random() * 500);
       return (
         <Card
           key={i}
@@ -125,8 +127,7 @@ export const SocialCard: Story = {
             src={`https://picsum.photos/300/${height}?random=${i}`}
             alt={`User ${i}`}
             withSkeleton
-            objectFit='contain'
-            rounded='lg'
+            width='100%'
           />
           <motion.div
             // initial={{ opacity: 1,height:'auto' }}

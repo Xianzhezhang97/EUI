@@ -1,6 +1,8 @@
 // src/components/ImagePro.stories.tsx
 
 import type { Meta, StoryObj } from '@storybook/react';
+import { EUI } from '@/stories/decorators/EUI';
+
 import { ImagePro } from './ImagePro';
 
 const meta: Meta<typeof ImagePro> = {
@@ -42,13 +44,7 @@ const meta: Meta<typeof ImagePro> = {
     zoomOnHover: { control: 'boolean' },
     zoomOnClick: { control: 'boolean', description: 'Enable zoom on click' },
   },
-  decorators: [
-    (Story) => (
-      <div className='flex items-center justify-center w-full h-[300px] bg-gray-50 p-4 rounded-xl border'>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [EUI],
 };
 
 export default meta;
@@ -66,6 +62,9 @@ export const Default: Story = {
   args: {
     src: demoImage,
     alt: 'Default image',
+    zoomOnClick: true,
+    width: '100%',
+    // aspectRatio: '16:9',
   },
 };
 
@@ -76,6 +75,8 @@ export const LazyAndSkeleton: Story = {
     alt: 'Lazy image with skeleton',
     lazy: true,
     withSkeleton: true,
+    width: '200px',
+    aspectRatio: '9:16',
   },
 };
 
@@ -87,6 +88,8 @@ export const WithPlaceholder: Story = {
     placeholder: blurPlaceholder,
     lazy: true,
     withSkeleton: false,
+    width: '400px',
+    aspectRatio: '4:3',
   },
 };
 
@@ -95,11 +98,10 @@ export const InteractiveImage: Story = {
   args: {
     src: demoImage,
     alt: 'Interactive image with hover and click zoom',
-    width: 300,
-    aspectRatio: '9:16',
-    zoomOnHover: true,
     zoomOnClick: true,
-    fadeIn: true,
+    width: '200px',
+    aspectRatio: '16:9',
+    zoomOnHover: true
   },
 };
 
@@ -111,6 +113,8 @@ export const WithFallback: Story = {
     fallback: '/fallback.png',
     showProgress: true,
     lazy: true,
+    width: '400px',
+    aspectRatio: '16:9',
   },
 };
 
@@ -121,6 +125,8 @@ export const WithProgressBar: Story = {
     alt: 'Image with progress tracking',
     showProgress: true,
     lazy: true,
+    width: '400px',
+    aspectRatio: '4/2',
   },
 };
 
@@ -130,19 +136,23 @@ export const WithAspectRatio: Story = {
     src: demoImage,
     alt: 'Image with aspect ratio',
     aspectRatio: '16:9',
-    width: '100%',
+
+    // width: '100%',
     withSkeleton: true,
+
+    width: '400px',
   },
 };
 
-export const FixedHeight: Story = {
-  name: '📏 Fixed Height (150px)',
+export const FixedWidth: Story = {
+  name: '📏 Fixed Width (150px)',
   args: {
     src: demoImage,
-    alt: 'Image with fixed height',
-    height: 150,
-    width: '100%',
-    aspectRatio: undefined, // Explicitly remove aspect ratio to use fixed height
+    alt: 'Image with fixed Width',
+    width: 150,
+    aspectRatio: '9:16',
+
+    height: '',
   },
 };
 
@@ -157,13 +167,20 @@ const galleryImages = [
 ];
 
 export const Gallery: Story = {
+  args: {
+    width: '',
+    aspectRatio: '16:9',
+  },
+
   name: '🖼️ Gallery Grid',
+
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
       default: 'light',
     },
   },
+
   // This story uses its own decorator to provide a better viewing experience
   decorators: [
     (Story) => (
@@ -172,6 +189,7 @@ export const Gallery: Story = {
       </div>
     ),
   ],
+
   render: () => (
     <div className='grid grid-cols-3 gap-4'>
       {galleryImages.map(({ id, author }) => (

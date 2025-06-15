@@ -11,7 +11,7 @@ export interface ImageProProps {
 
   width?: number | string;
   height?: number | string;
-  aspectRatio?: '1:1' | '4:3' | '16:9' | '21:9' | '3:4' | '9:16' | string;
+  aspectRatio?: '1/1' | '4/3' | '16/9' | '2/9' | '3/4' | '9/16' | string;
 
   lazy?: boolean;
   priority?: boolean;
@@ -47,7 +47,7 @@ export const ImagePro = ({
   src,
   alt,
 
-  width,
+  width = '100%',
   height,
   aspectRatio,
   lazy = false,
@@ -87,54 +87,30 @@ export const ImagePro = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const uniqueId = useId();
 
-  // 判断是否有明确的尺寸设置
-  const hasExplicitSize = width !== undefined || height !== undefined;
-  const hasAspectRatio = aspectRatio !== undefined;
-
-  // 判断是否应该使用自然尺寸（类似原生img行为）
-  const shouldUseNaturalSize =
-    width === '100%' && height === undefined && !hasAspectRatio;
-
-  // Style for container
+  // Style for aspect ratio
   const getContainerStyle = (): CSSProperties => {
     const result: CSSProperties = { ...style };
 
-    // 如果有明确的width设置
-    if (width !== undefined) {
+    // If width is explicitly provided, use it
+    if (width) {
       result.width = typeof width === 'number' ? `${width}px` : width;
     }
 
-    // 如果有明确的height设置
-    if (height !== undefined) {
+    // If height is explicitly provided, use it
+    if (height) {
       result.height = typeof height === 'number' ? `${height}px` : height;
     }
 
-    // 如果设置了aspectRatio且没有明确的height
-    if (aspectRatio && height === undefined) {
-      // 支持 "w:h" 格式
-      if (aspectRatio.includes(':')) {
-        const [w, h] = aspectRatio.split(':').map(Number);
-        if (!isNaN(w) && !isNaN(h) && w > 0 && h > 0) {
-          result.aspectRatio = `${w} / ${h}`;
+    // If aspectRatio is provided and no height is set, use aspect-ratio
+    if (aspectRatio && !height) {
+      const [w, h] = aspectRatio.split('/').map(Number);
+      if (!isNaN(w) && !isNaN(h) && w > 0) {
+        result.aspectRatio = `${w} / ${h}`;
+        // Ensure the container takes full width if no width is specified
+        if (!width) {
+          result.width = '100%';
         }
       }
-      // 支持 "w/h" 格式或直接的数字字符串
-      else if (aspectRatio.includes('/')) {
-        const [w, h] = aspectRatio.split('/').map(Number);
-        if (!isNaN(w) && !isNaN(h) && w > 0 && h > 0) {
-          result.aspectRatio = `${w} / ${h}`;
-        }
-      }
-      // 支持直接传入 CSS aspect-ratio 值
-      else {
-        result.aspectRatio = aspectRatio;
-      }
-    }
-
-    // 如果没有明确尺寸且没有aspect ratio，确保填满父容器
-    if (!hasExplicitSize && !hasAspectRatio) {
-      result.width = '100%';
-      result.height = '100%';
     }
 
     if (dominantColor && !isLoaded) {
@@ -142,24 +118,6 @@ export const ImagePro = ({
     }
 
     return result;
-  };
-
-  // 获取外层容器的类名
-  const getWrapperClassName = () => {
-    // 如果应该使用自然尺寸，使用inline-block让容器适应内容
-    if (shouldUseNaturalSize) {
-      return 'w-full';
-    }
-    // 如果设置了width为100%或者没有明确尺寸，都应该填满宽度
-    if (width === '100%' || (!hasExplicitSize && !hasAspectRatio)) {
-      return 'w-full h-full';
-    }
-    // 如果只有aspect ratio，也要填满宽度
-    if (!hasExplicitSize && hasAspectRatio) {
-      return 'w-full';
-    }
-    // 其他情况使用inline-block避免不必要的拉伸
-    return 'inline-block';
   };
 
   // Lazy loading
@@ -217,20 +175,19 @@ export const ImagePro = ({
     ? { transition: `opacity ${fadeInDuration}ms ease` }
     : {};
 
-  // 如果应该使用自然尺寸，使用相对定位而不是绝对定位
   const imageClass = cn(
-    shouldUseNaturalSize ? 'w-full h-auto' : 'absolute inset-0 w-full h-full',
+    'absolute inset-0 w-full h-full',
     `object-${objectFit}`,
     imgClassName,
   );
 
   return (
-    <div className={getWrapperClassName()}>
+    <div className='w-full h-full flex'>
       <motion.div
         layoutId={`image-${uniqueId}`}
         ref={containerRef}
         className={cn(
-          shouldUseNaturalSize ? 'relative' : 'relative overflow-hidden',
+          'relative overflow-hidden w-full',
           zoomOnClick && isLoaded && !hasError && 'cursor-pointer',
           className,
         )}
@@ -246,23 +203,17 @@ export const ImagePro = ({
           <img
             src={placeholder}
             alt='placeholder'
-            className={cn(
-              shouldUseNaturalSize
-                ? 'w-full h-auto blur-md scale-110'
-                : 'absolute inset-0 w-full h-full object-cover blur-md scale-110',
-            )}
+            className='absolute inset-0 w-full h-full object-cover blur-md scale-110'
           />
         )}
 
         {/* Skeleton */}
         {!isLoaded && !hasError && withSkeleton && (
-          <motion.div layoutId={`image-${uniqueId}`}>
-            <SkeletonImage className='absolute inset-0 w-full h-full min-h-[200px]' />
-          </motion.div>
+          <SkeletonImage className='absolute inset-0 w-full h-full' />
         )}
 
         {/* Progress */}
-        {showProgress && !isLoaded && !hasError && !shouldUseNaturalSize && (
+        {showProgress && !isLoaded && !hasError && (
           <div className='absolute inset-0 w-full h-full flex items-center justify-center bg-white/60'>
             <CircularProgress
               value={progress}
@@ -280,18 +231,12 @@ export const ImagePro = ({
             <img
               src={fallback}
               alt={alt}
-              className={cn(
-                shouldUseNaturalSize
-                  ? 'w-full h-auto object-cover'
-                  : 'absolute inset-0 w-full h-full object-cover',
-              )}
+              className='absolute inset-0 w-full h-full object-cover'
             />
           ) : (
-            !shouldUseNaturalSize && (
-              <div className='absolute inset-0 w-full h-full flex items-center justify-center bg-gray-100 text-gray-500'>
-                <span>Image failed to load</span>
-              </div>
-            )
+            <div className='absolute inset-0 w-full h-full flex items-center justify-center bg-gray-100 text-gray-500'>
+              <span>Image failed to load</span>
+            </div>
           )
         ) : (
           isInView && (
@@ -344,7 +289,7 @@ export const ImagePro = ({
                 duration: 0.7,
                 ease: defaultEase,
               }}
-              className='relative z-10 max-w-screen max-h-screen w-full h-full'
+              className='relative z-10 max-w-[90vw] max-h-[90vh] w-full h-full'
             >
               <img
                 src={src}
