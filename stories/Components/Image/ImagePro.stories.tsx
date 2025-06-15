@@ -1,97 +1,192 @@
-// src/components/SmartImage.stories.tsx
+// src/components/ImagePro.stories.tsx
 
-import type { Meta, StoryObj } from "@storybook/react";
-import { ImagePro } from "./ImagePro";
+import type { Meta, StoryObj } from '@storybook/react';
+import { ImagePro } from './ImagePro';
 
 const meta: Meta<typeof ImagePro> = {
-  title: "Components/Image",
+  title: 'Components/ImagePro',
   component: ImagePro,
-  tags: ["autodocs"],
-  argTypes: {
-    width: { control: "number" },
-    height: { control: "number" },
-    lazy: { control: "boolean" },
-    withSkeleton: { control: "boolean" },
-    showProgress: { control: "boolean" },
-    placeholder: { control: "text" },
-    fallback: { control: "text" },
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered', // 展示居中更清晰
+    backgrounds: {
+      default: 'light',
     },
-  
+  },
+  argTypes: {
+    src: { control: 'text', description: 'Image source URL' },
+    alt: { control: 'text', description: 'Alternative text' },
+    width: { control: 'text', description: 'Image width (px or %)' },
+    height: { control: 'text', description: 'Image height (px or %)' },
+    aspectRatio: {
+      control: 'text',
+      description: 'Aspect ratio (e.g., 16:9)',
+    },
+    lazy: { control: 'boolean', description: 'Enable lazy loading' },
+    withSkeleton: {
+      control: 'boolean',
+      description: 'Show skeleton while loading',
+    },
+    placeholder: { control: 'text', description: 'Placeholder image URL' },
+    fallback: { control: 'text', description: 'Fallback image URL' },
+    showProgress: {
+      control: 'boolean',
+      description: 'Show loading progress bar',
+    },
+    objectFit: {
+      control: 'select',
+      options: ['cover', 'contain', 'fill', 'none', 'scale-down'],
+    },
+    fadeIn: { control: 'boolean' },
+    fadeInDuration: { control: 'number' },
+    zoomOnHover: { control: 'boolean' },
+    zoomOnClick: { control: 'boolean', description: 'Enable zoom on click' },
+  },
   decorators: [
     (Story) => (
-      <div className=" items-center flex w-full h-full">
-                <Story />
-
+      <div className='flex items-center justify-center w-full h-[300px] bg-gray-50 p-4 rounded-xl border'>
+        <Story />
       </div>
     ),
   ],
 };
 
 export default meta;
-type Story = StoryObj<typeof Image>;
+type Story = StoryObj<typeof ImagePro>;
 
-const demoImage = "https://picsum.photos/1920/1080";
-const brokenImage = "https://not-exist-domain.com/image.jpg";
-const blurPlaceholder = "https://picsum.photos/id/10/10?blur";
+// ---------- 🔽 Demo assets ----------
+const demoImage = 'https://picsum.photos/600/400';
+const brokenImage = 'https://not-exist-domain.com/image.jpg';
+const blurPlaceholder = 'https://picsum.photos/id/237/10?blur';
+
+// ---------- ✅ Story variants ----------
 
 export const Default: Story = {
+  name: '🎯 Default Image',
   args: {
     src: demoImage,
-    alt: "正常图片",
-    width: "100%",
-    height: "100%",
-    lazy: false,
-    withSkeleton: true,
-    showProgress: false,
-    rounded: true,
+    alt: 'Default image',
   },
 };
 
-export const WithSkeletonAndLazy: Story = {
+export const LazyAndSkeleton: Story = {
+  name: '🕒 Lazy + Skeleton',
   args: {
     src: demoImage,
-    alt: "懒加载 + 骨架屏",
-    width: "100%",
-    height: "100%",
+    alt: 'Lazy image with skeleton',
     lazy: true,
     withSkeleton: true,
-    showProgress: false,
-    rounded: true,
   },
 };
 
 export const WithPlaceholder: Story = {
+  name: '🔍 Blur Placeholder',
   args: {
     src: demoImage,
-    alt: "模糊占位图",
-    width: "100%",
-    height: "100%",
+    alt: 'Image with blurred placeholder',
+    placeholder: blurPlaceholder,
     lazy: true,
     withSkeleton: false,
-    placeholder: blurPlaceholder,
-    rounded: true,
   },
 };
 
-export const WithFallbackImage: Story = {
+export const InteractiveImage: Story = {
+  name: '✨ Interactive (Hover & Click)',
+  args: {
+    src: demoImage,
+    alt: 'Interactive image with hover and click zoom',
+    width: 300,
+    aspectRatio: '9:16',
+    zoomOnHover: true,
+    zoomOnClick: true,
+    fadeIn: true,
+  },
+};
+
+export const WithFallback: Story = {
+  name: '❌ Fallback on Error',
   args: {
     src: brokenImage,
-    alt: "加载失败图",
-    width:  "100%",
-    height: "100%",
-    rounded: true,
-    fallback: "/fallback.png",
+    alt: 'Broken image with fallback',
+    fallback: '/fallback.png',
+    showProgress: true,
+    lazy: true,
   },
 };
 
 export const WithProgressBar: Story = {
+  name: '📈 With Progress Indicator',
   args: {
     src: demoImage,
-    alt: "加载进度条",
-    width: "100%",
-    height: "100%",
-    rounded: true,
+    alt: 'Image with progress tracking',
     showProgress: true,
-    withSkeleton: false,
+    lazy: true,
   },
+};
+
+export const WithAspectRatio: Story = {
+  name: '📐 Aspect Ratio (16:9)',
+  args: {
+    src: demoImage,
+    alt: 'Image with aspect ratio',
+    aspectRatio: '16:9',
+    width: '100%',
+    withSkeleton: true,
+  },
+};
+
+export const FixedHeight: Story = {
+  name: '📏 Fixed Height (150px)',
+  args: {
+    src: demoImage,
+    alt: 'Image with fixed height',
+    height: 150,
+    width: '100%',
+    aspectRatio: undefined, // Explicitly remove aspect ratio to use fixed height
+  },
+};
+
+// ---------- 🖼️ Gallery Story ----------
+const galleryImages = [
+  { id: 10, author: 'Paul Jarvis' },
+  { id: 20, author: 'Alejandro Escamilla' },
+  { id: 30, author: 'Paul Jarvis' },
+  { id: 40, author: 'Ryan McGuire' },
+  { id: 50, author: 'NASA' },
+  { id: 60, author: 'Christian Bardenhorst' },
+];
+
+export const Gallery: Story = {
+  name: '🖼️ Gallery Grid',
+  parameters: {
+    layout: 'fullscreen',
+    backgrounds: {
+      default: 'light',
+    },
+  },
+  // This story uses its own decorator to provide a better viewing experience
+  decorators: [
+    (Story) => (
+      <div className='p-4 sm:p-8 bg-gray-50'>
+        <Story />
+      </div>
+    ),
+  ],
+  render: () => (
+    <div className='grid grid-cols-3 gap-4'>
+      {galleryImages.map(({ id, author }) => (
+        <ImagePro
+          key={id}
+          src={`https://picsum.photos/id/${id}/500/500`}
+          alt={`Photo by ${author}`}
+          aspectRatio='1:1'
+          lazy
+          withSkeleton
+          zoomOnClick
+          zoomOnHover
+          fadeIn
+        />
+      ))}
+    </div>
+  ),
 };

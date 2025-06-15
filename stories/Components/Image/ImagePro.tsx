@@ -1,165 +1,118 @@
-/** @format */
-
 import { cn } from '@/utils/cn';
-import { CSSProperties, useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { CSSProperties, useEffect, useId, useRef, useState } from 'react';
 import { CircularProgress } from '../Progress/CircularProgress';
 import { SkeletonImage } from '../Skeleton/Skeleton';
 
-// AspectRatio types
-type AspectRatioType =
-  | '1:1'
-  | '4:3'
-  | '16:9'
-  | '21:9'
-  | '3:4'
-  | '9:16'
-  | string;
-
-interface ImageProps {
-  // Essential props
+export interface ImageProProps {
   src: string;
   alt: string;
 
-  // Sizing options
   width?: number | string;
   height?: number | string;
-  aspectRatio?: AspectRatioType;
+  aspectRatio?: '1:1' | '4:3' | '16:9' | '21:9' | '3:4' | '9:16' | string;
 
-  // Loading behavior
   lazy?: boolean;
-  priority?: boolean; // For critical above-the-fold images
+  priority?: boolean;
 
-  // Placeholder behavior
   withSkeleton?: boolean;
-  placeholder?: string; // URL for placeholder image
-  blurhash?: string; // BlurHash string for placeholder
-  dominantColor?: string; // Background color while loading
+  placeholder?: string;
+  fallback?: string;
+  dominantColor?: string;
 
-  // Error handling
-  fallback?: string; // URL for fallback image
-  onError?: () => void; // Custom error handler
-
-  // Visual options
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
   objectPosition?: string;
-  rounded?: boolean | string; // true for default rounding, string for custom (sm, md, lg, full)
 
-  // Animation and effects
   fadeIn?: boolean;
   fadeInDuration?: number;
   zoomOnHover?: boolean;
+  zoomOnClick?: boolean;
 
-  // Progress indicator
   showProgress?: boolean;
 
-  // Accessibility
   loading?: 'eager' | 'lazy';
 
-  // Styling
   className?: string;
   style?: CSSProperties;
   imgClassName?: string;
 
-  // Advanced options
   srcSet?: string;
   sizes?: string;
   onClick?: () => void;
+  onError?: () => void;
 }
 
 export const ImagePro = ({
-  // Essential props
   src,
   alt,
 
-  // Sizing options
-  width,
+  width = '100%',
   height,
-  aspectRatio,
-
-  // Loading behavior
-  lazy = true,
+  aspectRatio = '16:9',
+  lazy = false,
   priority = false,
 
-  // Placeholder behavior
   withSkeleton = true,
   placeholder,
-  blurhash,
+  fallback,
   dominantColor,
 
-  // Error handling
-  fallback,
-  onError,
-
-  // Visual options
   objectFit = 'cover',
   objectPosition = 'center',
-  rounded = false,
 
-  // Animation and effects
   fadeIn = true,
   fadeInDuration = 500,
   zoomOnHover = false,
+  zoomOnClick = false,
 
-  // Progress indicator
   showProgress = false,
 
-  // Styling
   className = '',
   style = {},
   imgClassName = '',
 
-  // Advanced options
   srcSet,
   sizes,
   onClick,
-
-  // Rest props
-  ...rest
-}: ImageProps) => {
-  // States
+  onError,
+}: ImageProProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
   const [isInView, setIsInView] = useState(!lazy || priority);
 
-  // Refs
   const imgRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const uniqueId = useId();
 
-  // Calculate container styles
+  // Style for aspect ratio
   const getContainerStyle = (): CSSProperties => {
-    const containerStyle: CSSProperties = { ...style };
+    const result: CSSProperties = { ...style };
 
-    // Handle width and height
-    if (width !== undefined) {
-      containerStyle.width = typeof width === 'number' ? `${width}px` : width;
+    // Always set width from prop, which defaults to 100%
+    result.width = typeof width === 'number' ? `${width}px` : width;
+
+    // If height is explicitly provided, use it.
+    if (height) {
+      result.height = typeof height === 'number' ? `${height}px` : height;
     }
-
-    if (height !== undefined) {
-      containerStyle.height =
-        typeof height === 'number' ? `${height}px` : height;
-    }
-
-    // Handle aspect ratio
-    if (aspectRatio) {
-      const [width, height] = aspectRatio.split(':').map(Number);
-      if (!Number.isNaN(width) && !Number.isNaN(height)) {
-        containerStyle.position = 'relative';
-        containerStyle.paddingBottom = `${(height / width) * 100}%`;
-        containerStyle.width = containerStyle.width || '100%';
-        containerStyle.height = containerStyle.height || 'auto';
+    // Otherwise, if aspectRatio is provided, use it.
+    else if (aspectRatio) {
+      const [w, h] = aspectRatio.split(':').map(Number);
+      if (!isNaN(w) && !isNaN(h) && w > 0) {
+        result.aspectRatio = `${w} / ${h}`;
       }
     }
 
-    // Handle dominant color as background
     if (dominantColor && !isLoaded) {
-      containerStyle.backgroundColor = dominantColor;
+      result.backgroundColor = dominantColor;
     }
 
-    return containerStyle;
+    return result;
   };
 
-  // Lazy loading with Intersection Observer
+  // Lazy loading
   useEffect(() => {
     if (!lazy || priority) return;
 
@@ -170,26 +123,18 @@ export const ImagePro = ({
           observer.disconnect();
         }
       },
-      {
-        rootMargin: '200px', // Load images 200px before they come into view
-        threshold: 0.01,
-      },
+      { rootMargin: '200px', threshold: 0.01 },
     );
 
     if (containerRef.current) observer.observe(containerRef.current);
-
     return () => observer.disconnect();
   }, [lazy, priority]);
 
-  // Use XMLHttpRequest to track real loading progress
+  // Progress tracking
   useEffect(() => {
     if (!showProgress || isLoaded || hasError || !isInView) return;
 
-    // Only track progress for remote URLs
-    if (!src || src.startsWith('data:') || src.startsWith('blob:')) {
-      setProgress(0);
-      return;
-    }
+    if (!src || src.startsWith('data:') || src.startsWith('blob:')) return;
 
     const xhr = new XMLHttpRequest();
     xhr.open('GET', src, true);
@@ -197,28 +142,17 @@ export const ImagePro = ({
 
     xhr.onprogress = (event) => {
       if (event.lengthComputable) {
-        const newProgress = Math.round((event.loaded / event.total) * 100);
-        setProgress(newProgress);
+        setProgress(Math.round((event.loaded / event.total) * 100));
       }
     };
 
-    xhr.onload = () => {
-      setProgress(100);
-      // Don't set isLoaded here - we'll rely on the image's onLoad event
-    };
-
-    xhr.onerror = () => {
-      // If XHR fails, we'll rely on the image's onError
-    };
-
+    xhr.onload = () => setProgress(100);
+    xhr.onerror = () => setHasError(true);
     xhr.send();
 
-    return () => {
-      xhr.abort();
-    };
+    return () => xhr.abort();
   }, [showProgress, isLoaded, hasError, isInView, src]);
 
-  // Event handlers
   const handleLoad = () => {
     setProgress(100);
     setIsLoaded(true);
@@ -229,85 +163,131 @@ export const ImagePro = ({
     if (onError) onError();
   };
 
-  // Generate class names
-  const containerClasses = `relative overflow-hidden w-full h-full  flex justify-center items-center ${className} `;
+  const fadeInStyle = fadeIn
+    ? { transition: `opacity ${fadeInDuration}ms ease` }
+    : {};
 
-  const imageClasses = `
-    w-full h-full object-${objectFit} absolute top-0 left-0 bottom-0 right-0
-    ${fadeIn ? `transition-opacity duration-${fadeInDuration}` : ''}
-    ${isLoaded ? 'opacity-100' : 'opacity-0'}
-    ${zoomOnHover ? 'transition-transform duration-300 hover:scale-110' : ''}
-    ${imgClassName}
-  `;
+  const imageClass = cn(
+    'absolute top-0 left-0 w-full h-full ',
+    `object-${objectFit}`,
+    imgClassName,
+  );
 
   return (
-    <div
-      ref={containerRef}
-      className={containerClasses}
-      style={getContainerStyle()}
-      onClick={onClick}
-    >
-      {/* Placeholder image - shown while loading */}
-      {!isLoaded && !hasError && placeholder && (
-        <img
-          src={placeholder}
-          alt='placeholder'
-          className='absolute inset-0 w-full h-full object-cover blur-md scale-110'
-        />
-      )}
-      {isLoaded}
-      {/* Main content area with skeleton or image */}
-
-      <SkeletonImage
-        aspectRatio='landscape'
-        variant='image'
-        className='w-full  h-full rounded-[20px] absolute top-0 left-0 bottom-0 right-0 object-cover flex justify-center items-center'
-      />
-
-      {/* Fallback image - shown on error */}
-      {fallback && (
-        <img src={fallback} alt={alt} className='w-full h-full object-cover' />
-      )}
-
-      {/* Error message - shown on error with no fallback */}
-      {hasError && fallback && (
-        <div className='absolute inset-0 h-full w-full flex items-center justify-center bg-gray-100 text-gray-500'>
-          <span>Image failed to load</span>
-        </div>
-      )}
-
-      {/* Progress indicator - shown while loading if showProgress is true */}
-      {showProgress && !isLoaded && !hasError && (
-        <div className='absolute inset-0 flex items-center justify-center bg-gray-50 bg-opacity-75'>
-          <CircularProgress
-            value={progress}
-            thickness={12}
-            color='primary'
-            size='xl'
-            duration={0}
+    <>
+      <motion.div
+        layoutId={`image-${uniqueId}`}
+        whileHover={zoomOnHover ? { scale: 1.1 } : {}}
+        ref={containerRef}
+        className={cn(
+          'relative overflow-hidden w-full h-full flex justify-center items-center',
+          zoomOnClick && isLoaded && !hasError && 'cursor-pointer',
+          className,
+        )}
+        style={getContainerStyle()}
+        onClick={
+          zoomOnClick && isLoaded && !hasError
+            ? () => setIsZoomed(true)
+            : onClick
+        }
+      >
+        {/* Placeholder (optional) */}
+        {!isLoaded && !hasError && placeholder && (
+          <img
+            src={placeholder}
+            alt='placeholder'
+            className='absolute inset-0 w-full h-full object-cover blur-md scale-110'
           />
-        </div>
-      )}
-      {isInView && (
-        <img
-          ref={imgRef}
-          src={src}
-          alt={alt}
-          width={typeof width === 'number' ? width : 4}
-          height={typeof height === 'number' ? height : 3}
-          onLoad={handleLoad}
-          onError={handleError}
-          className={cn(
-            imageClasses,
-            'absolute top-0 left-0 bottom-0 right-0 z-50',
-          )}
-          style={{ objectPosition }}
-          loading={priority ? 'eager' : 'lazy'}
-          srcSet={srcSet}
-          sizes={sizes}
-          {...rest}
-        />
-      )}
-    </div>
+        )}
+
+        {/* Skeleton */}
+        {!isLoaded && !hasError && withSkeleton && (
+          <SkeletonImage
+            aspectRatio='landscape'
+            variant='image'
+            className='absolute inset-0 w-full h-full'
+          />
+        )}
+
+        {/* Progress */}
+        {showProgress && !isLoaded && !hasError && (
+          <div
+            className={cn(
+              'absolute inset-0 flex items-center justify-center bg-white/60',
+            )}
+          >
+            <CircularProgress
+              value={progress}
+              thickness={12}
+              color='primary'
+              size='xl'
+              duration={0}
+            />
+          </div>
+        )}
+
+        {/* Error fallback */}
+        {hasError ? (
+          fallback ? (
+            <img
+              src={fallback}
+              alt={alt}
+              className='w-full h-full object-cover'
+            />
+          ) : (
+            <div className='absolute inset-0 flex items-center justify-center bg-gray-100 text-gray-500'>
+              <span>Image failed to load</span>
+            </div>
+          )
+        ) : (
+          isInView && (
+            <img
+              ref={imgRef}
+              src={src}
+              alt={alt}
+              onLoad={handleLoad}
+              onError={handleError}
+              style={{
+                objectPosition,
+                ...fadeInStyle,
+                opacity: isLoaded ? 1 : 0,
+              }}
+              className={imageClass}
+              loading={priority ? 'eager' : 'lazy'}
+              srcSet={srcSet}
+              sizes={sizes}
+            />
+          )
+        )}
+      </motion.div>
+
+      <AnimatePresence>
+        {isZoomed && (
+          <motion.div
+            className='fixed inset-0 z-50 flex items-center justify-center'
+            onClick={() => setIsZoomed(false)}
+          >
+            {/* Backdrop */}
+            <motion.div
+              className='absolute inset-0 bg-black backdrop-blur-sm'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.75 }}
+              exit={{ opacity: 0 }}
+            />
+            {/* Image */}
+            <motion.div
+              layoutId={`image-${uniqueId}`}
+              className='relative z-10 w-[90vw] h-[90vh]'
+            >
+              <img
+                src={src}
+                alt={alt}
+                className='w-full h-full object-contain'
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };

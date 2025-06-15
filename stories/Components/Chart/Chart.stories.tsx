@@ -3,7 +3,7 @@ import { Chart, ChartProps } from '@/stories/Components/Chart/Chart';
 import { EUI } from '@/stories/decorators/EUI';
 
 const meta: Meta<typeof Chart> = {
-  title: 'UI/Components/Chart',
+  title: 'Chart',
   component: Chart,
   parameters: {
     layout: 'centered',

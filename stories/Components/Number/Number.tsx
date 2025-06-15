@@ -33,6 +33,7 @@ interface AnimatedNumberProps {
   decimalPartSize?: string;
   suffixSize?: string;
   commaWidth?: string;
+  className?: string;
 }
 
 export const Number: React.FC<AnimatedNumberProps> = ({
@@ -55,6 +56,8 @@ export const Number: React.FC<AnimatedNumberProps> = ({
   decimalPartSize,
   suffixSize,
   commaWidth = '0.4em',
+  className,
+  ...props
 }) => {
   const [formattedParts, setFormattedParts] = useState<{
     currencySymbol: string;
@@ -161,7 +164,10 @@ export const Number: React.FC<AnimatedNumberProps> = ({
   };
 
   return (
-    <div className={cn('inline-flex items-end ')}>
+    <div
+      className={cn('inline-flex items-end', className)}
+      {...props}
+    >
       {prefix && (
         <span
           className='mr-1'

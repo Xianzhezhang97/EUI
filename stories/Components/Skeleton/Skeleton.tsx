@@ -51,7 +51,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
   size = 'md',
   isLoaded = false,
   fadeDuration = 0.2,
-  speed = 0.7,
+  speed = 1,
   startColor = 'from-gray-200',
   endColor = 'to-gray-300',
   className,
@@ -108,7 +108,10 @@ export const SkeletonGroup = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className={cn('space-y-4', className)} {...props}>
+    <div
+      className={cn('space-y-4', className)}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -145,12 +148,29 @@ export const SkeletonCard = ({
   className?: string;
 }) => {
   return (
-    <div className={cn('skeleton-card', className)} {...props}>
-      {title && <Skeleton variant='text' size='lg' className='w-3/4 mb-2' />}
+    <div
+      className={cn('skeleton-card', className)}
+      {...props}
+    >
+      {title && (
+        <Skeleton
+          variant='text'
+          size='lg'
+          className='w-3/4 mb-2'
+        />
+      )}
       {description && (
         <>
-          <Skeleton variant='text' size='md' className='w-2/3 mb-2' />
-          <Skeleton variant='text' size='md' className='w-1/2' />
+          <Skeleton
+            variant='text'
+            size='md'
+            className='w-2/3 mb-2'
+          />
+          <Skeleton
+            variant='text'
+            size='md'
+            className='w-1/2'
+          />
         </>
       )}
     </div>
@@ -179,11 +199,27 @@ export const SkeletonListItem = ({
       {...props}
     >
       {avatar && (
-        <Skeleton variant='circular' size='md' className='w-10 h-10' />
+        <Skeleton
+          variant='circular'
+          size='md'
+          className='w-10 h-10'
+        />
       )}
       <div className='flex-1'>
-        {title && <Skeleton variant='text' size='md' className='w-3/4 mb-2' />}
-        {description && <Skeleton variant='text' size='sm' className='w-1/2' />}
+        {title && (
+          <Skeleton
+            variant='text'
+            size='md'
+            className='w-3/4 mb-2'
+          />
+        )}
+        {description && (
+          <Skeleton
+            variant='text'
+            size='sm'
+            className='w-1/2'
+          />
+        )}
       </div>
     </div>
   );
