@@ -1,7 +1,6 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion as m } from 'framer-motion';
 import { AnimationType } from '../Number';
 import { getVariants } from '../util/getAnimationVariants';
-import { cn } from '@/utils/cn';
 
 export const Digit: React.FC<{
   value: string;
@@ -9,7 +8,6 @@ export const Digit: React.FC<{
   animation: AnimationType;
   duration: number;
   delay: number;
-  className?: string;
   fontSize?: string;
   commaWidth?: string;
 }> = ({
@@ -20,7 +18,6 @@ export const Digit: React.FC<{
   delay,
   fontSize,
   commaWidth,
-  className,
 }) => {
   const variants = getVariants(animation, duration, delay);
   const hasChanged = value !== prevValue;
@@ -50,10 +47,10 @@ export const Digit: React.FC<{
       : isDecimalPoint
       ? '0.4em'
       : isNumber
-      ? '0.7em'
+      ? '0.8em'
       : '1em',
     height: '1em',
-    margin: isComma || isDecimalPoint ? '0 -0.02em' : '0 -0.02em',
+    margin: isComma || isDecimalPoint ? '0 -0.05em' : '',
   };
 
   const separatorClass = isComma ? '' : isDecimalPoint ? '' : '';
@@ -62,10 +59,7 @@ export const Digit: React.FC<{
   if (animation === 'none') {
     return (
       <div
-        className={cn(
-          `relative inline-flex items-center justify-center  ${separatorClass}`,
-          className,
-        )}
+        className={`relative inline-flex items-center justify-center font-medium ${separatorClass}`}
         style={baseStyle}
         dangerouslySetInnerHTML={{ __html: value }}
       />
@@ -90,14 +84,23 @@ export const Digit: React.FC<{
   };
 
   return (
-    <div
+    <m.div
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{
+        type: 'spring',
+        stiffness: 300,
+        damping: 20,
+      }}
       className='relative inline-flex overflow-hidden items-center justify-center'
       style={baseStyle}
     >
       <AnimatePresence mode='wait'>
         {hasChanged ? (
           <>
-            <motion.div
+            <m.div
               key={`exit-${prevValue}`}
               initial='center'
               whileInView='exit'
@@ -105,7 +108,7 @@ export const Digit: React.FC<{
               {...motionConfig}
               dangerouslySetInnerHTML={{ __html: prevValue }}
             />
-            <motion.div
+            <m.div
               key={`enter-${value}`}
               initial='enter'
               whileInView='center'
@@ -119,6 +122,6 @@ export const Digit: React.FC<{
           />
         )}
       </AnimatePresence>
-    </div>
+    </m.div>
   );
 };

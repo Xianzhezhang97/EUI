@@ -1,6 +1,5 @@
 // AnimatedNumber.stories.tsx
 import { Button } from '@/stories/Components/Button/Button';
-// import { CopyButton } from '@/UI/Components/Button/CopyButton';
 import { Slider } from '@/stories/Components/Slider/Slider';
 import { Meta, StoryObj } from '@storybook/react';
 import { useCallback, useEffect, useState } from 'react';

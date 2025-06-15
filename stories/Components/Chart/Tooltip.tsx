@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion as m } from 'framer-motion';
 import { Number } from '../Number/Number';
+import { AutoContainer } from '../Container/AutoContainer';
 
 export interface ChartTooltipPropsItem {
   isShortFormat?: boolean;
@@ -37,7 +39,7 @@ export const ChartTooltip: React.FC<ChartTooltipProps> = ({
     const displayLabel = label != null ? String(label) : null; // Use the Recharts label as the title
 
     return (
-      <div className='rounded-lg border bg-white/90 backdrop-blur-sm card-md text-sm shadow-lg'>
+      <m.div className='rounded-lg border bg-white/90 transition-all duration-300 backdrop-blur-sm card-md text-sm shadow-lg'>
         {displayLabel && (
           <div className='mb-2 font-medium text-foreground '>
             {displayLabel}
@@ -85,6 +87,7 @@ export const ChartTooltip: React.FC<ChartTooltipProps> = ({
                   <div className='flex flex-col items-center gap-2'>
                     <Number
                       value={item.value}
+                      duration={0.2}
                       {...ValueProps}
                       className={`font-medium text-xs  ${
                         !itemName || itemName.trim() === '' ? 'ml-auto' : ''
@@ -96,7 +99,7 @@ export const ChartTooltip: React.FC<ChartTooltipProps> = ({
             );
           })}
         </div>
-      </div>
+      </m.div>
     );
   }
 
