@@ -115,7 +115,7 @@ export const Default: Story = {
     name: 'avatar',
     label: 'User Avatar',
     aspect: 1,
-    previewMaxWidth: '120px',
+    previewMaxWidth: "300px",
     recommendations: ['A square aspect ratio (1:1) is recommended.'],
     maxShortSide: 300,
   },
@@ -142,7 +142,7 @@ export const CoverPhoto: Story = {
     name: 'coverImage',
     label: 'Article Cover Photo',
     aspect: 16 / 9,
-    previewMaxWidth: '300px',
+    previewMaxWidth: "400px",
     maxShortSide: 1080,
     recommendations: [
       'Aspect Ratio: 16:9.',
@@ -196,8 +196,8 @@ export const FreeformCrop: Story = {
   args: {
     name: 'freeformImage',
     label: 'Upload Any Shape',
-    aspect: undefined,
-    previewMaxWidth: '250px',
+    aspect: 1.5,
+    previewMaxWidth: "500px",
     recommendations: ['You can select any crop aspect ratio you like.'],
   },
   decorators: [

@@ -129,10 +129,13 @@ const MainContent = ({
 }: any) => {
   if (status === 'compressing') {
     return (
-      <div className='w-full border-2 border-dashed rounded-lg p-6 text-center flex flex-col justify-center items-center h-full min-h-[150px]'>
+      <div
+        className='w-full border-2 border-dashed rounded-lg p-6 text-center flex flex-col justify-center items-center'
+        style={{ aspectRatio: aspect }}
+      >
         <Loader2 className='h-10 w-10 mb-2 animate-spin text-primary-500' />
         <p className='font-semibold text-gray-600 text-sm'>
-          Optimizing image and performance, please wait...
+          Optimizing image...
         </p>
       </div>
     );
@@ -172,8 +175,9 @@ const MainContent = ({
   return (
     <div
       {...getRootProps()}
+      style={{ aspectRatio: aspect }}
       className={cn(
-        'w-full border-2 border-dashed rounded-lg p-6 text-center cursor-pointer hover:border-primary-500 transition-colors min-h-[150px] w-[300px] flex flex-col justify-center items-center',
+        'w-full border-2 border-dashed rounded-lg p-6 text-center cursor-pointer hover:border-primary-500 transition-colors flex flex-col justify-center items-center',
         isDragActive ? 'border-primary-600 bg-primary-50' : 'border-gray-300',
         error ? 'border-red-500' : '',
       )}
