@@ -184,10 +184,15 @@ const config: Config = {
           '0%': { strokeDashoffset: '240' },
           '100%': { strokeDashoffset: '0' },
         },
+        'fade-in': {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         'circle-draw': 'circle-draw 1s ease-in-out forwards',
         'tick-draw': 'tick-draw 0.8s ease-out forwards',
+        'fade-in': 'fade-in 0.3s ease-out forwards',
       },
     },
   },

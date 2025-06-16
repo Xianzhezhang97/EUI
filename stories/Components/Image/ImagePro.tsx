@@ -50,7 +50,7 @@ export const ImagePro = ({
   width,
   height,
   aspectRatio,
-  lazy = false,
+  lazy = true,
   priority = false,
 
   withSkeleton = true,
